@@ -4,7 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>PrizeRunners — Get 5 FREE Plays · Instant Win</title>
+  <title>PrizeRunners | Get 5 FREE Play Now!</title>
+  <link rel="icon" type="image/png" href="Logo/PR_Logo_Pink.png" />
+  <link rel="apple-touch-icon" href="Logo/PR_Logo_Pink.png" />
   <meta name="description"
     content="Register now and play ‘Find The Impact’ — win a Mercedes AMG, Rolex Submariner, iPhone 17 Pro Max, or instant cash. 5 free plays, instant win, no card required." />
 
@@ -14,6 +16,34 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Figtree:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18093478400"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'AW-18093478400');
+  </script>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1292335899304352');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1292335899304352&ev=PageView&noscript=1"
+    alt="" /></noscript>
+  <!-- End Meta Pixel Code -->
 
   <style>
     :root {
@@ -3870,7 +3900,7 @@
         <!-- Total prize pool chip -->
         <div class="total" role="note">
           <div class="lbl">Total Prize Pool</div>
-          <div class="val">£410,095</div>
+          <div class="val">£619,379</div>
         </div>
       </div>
 
@@ -3934,7 +3964,7 @@
           <div class="epic-media" style="background-image:url('Prizes/Mercedes%20AMG%20A45S.png')"></div>
           <h3 class="epic-title">Mercedes AMG A45 S</h3>
           <div class="epic-rrp">RRP</div>
-          <div class="epic-price">£55,000</div>
+          <div class="epic-price">£61,185</div>
           <a class="pcard-cta" href="https://prizerunners.com/web/register" style="text-transform: uppercase;">PLAY NOW <span>→</span></a>
         </article>
 
@@ -3942,9 +3972,9 @@
         <article class="epic-card epic-orange">
           <span class="pcard-badge pcard-badge-cash">BIG PRIZE</span>
           <div class="epic-media" style="background-image:url('Prizes/Rolex%20Submariner%20Bluesy.png')"></div>
-          <h3 class="epic-title">Rolex Bluesy</h3>
+          <h3 class="epic-title">Rolex Submariner Bluesy</h3>
           <div class="epic-rrp">RRP</div>
-          <div class="epic-price">£16,500</div>
+          <div class="epic-price">£15,800</div>
           <a class="pcard-cta" href="https://prizerunners.com/web/register" style="text-transform: uppercase;">PLAY NOW <span>→</span></a>
         </article>
 
@@ -3954,7 +3984,7 @@
           <div class="epic-media" style="background-image:url('Prizes/iPhone%2017%20Pro%20Max.png')"></div>
           <h3 class="epic-title">iPhone 17 Pro Max</h3>
           <div class="epic-rrp">RRP</div>
-          <div class="epic-price">£1,599</div>
+          <div class="epic-price">£1,199</div>
           <a class="pcard-cta" href="https://prizerunners.com/web/register" style="text-transform: uppercase;">PLAY NOW <span>→</span></a>
         </article>
 
@@ -4570,6 +4600,16 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      const registerLinks = document.querySelectorAll('a[href="https://prizerunners.com/web/register"]');
+      if (window.location.search && registerLinks.length) {
+        registerLinks.forEach((link) => {
+          const url = new URL(link.href);
+          const currentParams = new URLSearchParams(window.location.search);
+          currentParams.forEach((value, key) => url.searchParams.set(key, value));
+          link.href = url.toString();
+        });
+      }
+
       const track = document.querySelector('.winners-track');
       if(!track) return;
       
