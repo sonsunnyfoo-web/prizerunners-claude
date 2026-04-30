@@ -692,7 +692,7 @@
       <p class="success-msg">Your bonus is saved. Use the same phone number when you register and your <b>100% match</b> will apply to your first deposit whenever you're ready.</p>
       <p>Your number: <span class="success-phone" id="successPhone">+44 7XXX XXXXXX</span></p>
       <a class="cta-claim" href="https://prizerunners.com/web/register" style="margin-top:24px" id="btnRegister">
-        Register Now
+        Continue to Register
         <span aria-hidden="true">→</span>
       </a>
     </div>
@@ -721,6 +721,21 @@
   const card        = document.getElementById('bonusCard');
   const bonusLeft   = document.getElementById('bonusLeft');
   const bonusFill   = document.getElementById('bonusFill');
+
+  // ====== UTM forwarding ======
+  const incomingParams = new URLSearchParams(window.location.search);
+  const trackedKeys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_id','utm_term','fbclid','gclid'];
+  const trackedParams = new URLSearchParams();
+  trackedKeys.forEach(k => { if (incomingParams.get(k)) trackedParams.set(k, incomingParams.get(k)); });
+  const utmQS = trackedParams.toString();
+  if (utmQS) {
+    document.querySelectorAll('a[href*="prizerunners.com/web/register"]').forEach(a => {
+      const u = new URL(a.href);
+      trackedKeys.forEach(k => { if (incomingParams.get(k)) u.searchParams.set(k, incomingParams.get(k)); });
+      a.href = u.toString();
+    });
+  }
+  const utmObject = Object.fromEntries(trackedParams.entries());
 
   function setupBonusMeter(){
     if (!bonusLeft || !bonusFill) return;
@@ -785,7 +800,7 @@
       method: 'POST',
       mode: 'no-cors',
       headers: {'Content-Type': 'text/plain;charset=utf-8'},
-      body: JSON.stringify({phone: '44 ' + num, ua: navigator.userAgent})
+      body: JSON.stringify({phone: '44 ' + num, ua: navigator.userAgent, ...utmObject})
     }).catch(() => {});
 
     setTimeout(() => {
