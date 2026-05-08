@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -1563,6 +1563,10 @@
       background-clip: text;
       color: transparent;
       filter: drop-shadow(0 6px 24px rgba(255, 31, 143, .5));
+    }
+
+    .prizes-title {
+      line-height: 1.08;
     }
 
     .section-sub {
@@ -3729,6 +3733,52 @@
       margin-bottom: 28px
     }
 
+    .foot-bonus-badge {
+      display: flex;
+      width: fit-content;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 0 auto 28px;
+      padding: 12px 24px;
+      background: linear-gradient(90deg, rgba(255, 210, 74, 0.05), rgba(255, 210, 74, 0.15), rgba(255, 210, 74, 0.05));
+      border: 1px solid rgba(255, 210, 74, 0.3);
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 210, 74, 0.1);
+      color: #ffd24a;
+      font-weight: 800;
+      font-size: clamp(14px, 1.5vw, 16px);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    
+    .foot-bonus-badge svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    }
+
+    .foot-note {
+      margin-top: 16px;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+    @media (min-width: 901px) {
+      .foot-note {
+        margin-top: 20px;
+      }
+    }
+    @media (max-width: 900px) {
+      .foot-note {
+        margin-top: 10px;
+      }
+    }
+
     .foot-tag {
       padding: 7px 14px;
       border-radius: 999px;
@@ -3805,17 +3855,46 @@
       }
 
       .foot-title {
-        font-size: clamp(36px, 9vw, 58px);
-        line-height: 1.14;
+        font-size: clamp(48px, 13vw, 72px);
+        line-height: 1.08;
       }
 
       .foot-title-small {
-        font-size: clamp(19px, 5vw, 28px);
+        font-size: clamp(21px, 5.6vw, 30px);
         margin-bottom: 12px;
       }
 
       .foot-title .accent {
-        font-size: 1.32em;
+        font-size: 1.34em;
+      }
+
+      .foot-bonus-badge {
+        width: 100%;
+        max-width: 370px;
+        display: grid;
+        grid-template-columns: 24px minmax(0, 1fr);
+        align-items: center;
+        gap: 10px;
+        padding: 12px 14px;
+        text-align: left;
+        font-size: 13px;
+        line-height: 1.18;
+        letter-spacing: .035em;
+      }
+
+      .foot-bonus-badge svg {
+        width: 18px;
+        height: 18px;
+        justify-self: center;
+      }
+
+      .foot-bonus-badge > span {
+        display: block;
+      }
+
+      .foot-bonus-badge > span > span {
+        display: inline;
+        margin-right: 4px;
       }
 
       .cash-big {
@@ -4179,7 +4258,7 @@
 
     .pitch-tags {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       gap: 12px;
     }
 
@@ -4199,7 +4278,7 @@
     .ptag svg {
       width: 18px;
       height: 18px;
-      color: #ff4dc4;
+      color: #10ff9f;
     }
 
     @media (max-width: 900px) {
@@ -4209,6 +4288,9 @@
       .feature-pitch-content {
         border-left: none;
         border-top: 1px solid rgba(255, 31, 143, 0.2);
+      }
+      .pitch-tags {
+        flex-wrap: wrap;
       }
       .feature-pitch-visual {
         min-height: auto;
@@ -4261,8 +4343,8 @@
         </div>
 
         <div class="cta-row">
-          <a class="cta cta-xl" href="/welcome-bonus/">
-            Play to Win Now <span class="arrow">→</span>
+          <a class="cta cta-xl" href="https://prizerunners.com/web/register">
+            Start Playing Now <span class="arrow">→</span>
           </a>
           <p class="cta-note">Sign Up &amp; Get 5 FREE Plays</p>
         </div>
@@ -4355,31 +4437,31 @@
         <!-- Mercedes -->
         <article class="epic-card epic-pink">
           <span class="pcard-badge pcard-badge-top">TOP PRIZE</span>
-          <div class="epic-media" style="background-image:url('Prizes/Mercedes%20AMG%20A45S.png')"></div>
+          <div class="epic-media" style="background-image:url('../Prizes/Mercedes%20AMG%20A45S.png')"></div>
           <h3 class="epic-title">Mercedes AMG A45 S</h3>
           <div class="epic-rrp">RRP</div>
           <div class="epic-price">£61,185</div>
-          <a class="pcard-cta" href="/welcome-bonus/" style="text-transform: uppercase;">PLAY NOW <span>→</span></a>
+          <a class="pcard-cta" href="https://prizerunners.com/web/register" style="text-transform: uppercase;">PLAY NOW <span>→</span></a>
         </article>
 
         <!-- Rolex -->
         <article class="epic-card epic-orange">
           <span class="pcard-badge pcard-badge-cash">BIG PRIZE</span>
-          <div class="epic-media" style="background-image:url('Prizes/Rolex%20Submariner%20Bluesy.png')"></div>
+          <div class="epic-media" style="background-image:url('../Prizes/Rolex%20Submariner%20Bluesy.png')"></div>
           <h3 class="epic-title">Rolex Submariner Bluesy</h3>
           <div class="epic-rrp">RRP</div>
           <div class="epic-price">£15,800</div>
-          <a class="pcard-cta" href="/welcome-bonus/" style="text-transform: uppercase;">PLAY NOW <span>→</span></a>
+          <a class="pcard-cta" href="https://prizerunners.com/web/register" style="text-transform: uppercase;">PLAY NOW <span>→</span></a>
         </article>
 
         <!-- iPhone -->
         <article class="epic-card epic-pink">
           <span class="pcard-badge pcard-badge-top">BIG PRIZE</span>
-          <div class="epic-media" style="background-image:url('Prizes/iPhone%2017%20Pro%20Max.png')"></div>
+          <div class="epic-media" style="background-image:url('../Prizes/iPhone%2017%20Pro%20Max.png')"></div>
           <h3 class="epic-title">iPhone 17 Pro Max</h3>
           <div class="epic-rrp">RRP</div>
           <div class="epic-price">£1,199</div>
-          <a class="pcard-cta" href="/welcome-bonus/" style="text-transform: uppercase;">PLAY NOW <span>→</span></a>
+          <a class="pcard-cta" href="https://prizerunners.com/web/register" style="text-transform: uppercase;">PLAY NOW <span>→</span></a>
         </article>
 
         <!-- £1000 Cash -->
@@ -4397,7 +4479,7 @@
           </div>
           <h3 class="epic-title">£1,000 Cash Prize</h3>
           <div class="epic-price">INSTANT</div>
-          <a class="pcard-cta" href="/welcome-bonus/" style="text-transform: uppercase;">PLAY NOW <span>→</span></a>
+          <a class="pcard-cta" href="https://prizerunners.com/web/register" style="text-transform: uppercase;">PLAY NOW <span>→</span></a>
         </article>
 
         <!-- £200 Cash -->
@@ -4415,7 +4497,7 @@
           </div>
           <h3 class="epic-title">£200 Cash Prize</h3>
           <div class="epic-price">INSTANT</div>
-          <a class="pcard-cta" href="/welcome-bonus/" style="text-transform: uppercase;">PLAY NOW <span>→</span></a>
+          <a class="pcard-cta" href="https://prizerunners.com/web/register" style="text-transform: uppercase;">PLAY NOW <span>→</span></a>
         </article>
 
         <!-- Instant Cash -->
@@ -4437,7 +4519,7 @@
           </div>
           <h3 class="epic-title">Instant Cash Prizes</h3>
           <div class="epic-price">INSTANT</div>
-          <a class="pcard-cta" href="/welcome-bonus/" style="text-transform: uppercase;">PLAY NOW <span>→</span></a>
+          <a class="pcard-cta" href="https://prizerunners.com/web/register" style="text-transform: uppercase;">PLAY NOW <span>→</span></a>
         </article>
 
       </div>
@@ -4627,8 +4709,8 @@
       </div>
 
       <div class="howto-cta">
-        <a class="cta cta-xl" href="/welcome-bonus/">
-          Claim My 5 Free Plays <span class="arrow">→</span>
+        <a class="cta cta-xl" href="https://prizerunners.com/web/register">
+          Start Playing Now <span class="arrow">→</span>
         </a>
       </div>
     </div>
@@ -4640,7 +4722,7 @@
     <div class="section-inner">
       <div class="section-head">
         <span class="eyebrow eyebrow-pink"><span class="dot-pink"></span> WHY PRIZERUNNERS</span>
-        <h2 class="section-title">ONE GAME, MULTIPLE <span class="accent">PRIZES</span>.</h2>
+        <h2 class="section-title prizes-title">ONE GAME, MULTIPLE <span class="accent">PRIZES</span>.</h2>
         <p class="section-sub" style="max-width: 680px; margin: 0 auto; font-size: clamp(16px, 1.4vw, 20px);">Every Find The Impact game features a top prize at the exact impact point. Plus extra prizes scattered around it.</p>
       </div>
 
@@ -4662,9 +4744,9 @@
               </pattern>
               <style>
                 @keyframes pingRadar {
-                  0% { r: 10; opacity: 1; stroke-width: 4; }
-                  42.8% { r: 240; opacity: 0; stroke-width: 1; }
-                  100% { r: 240; opacity: 0; stroke-width: 0; }
+                  0% { transform: scale(0.0416); opacity: 1; stroke-width: 4; }
+                  42.8% { transform: scale(1); opacity: 0; stroke-width: 1; }
+                  100% { transform: scale(1); opacity: 0; stroke-width: 0; }
                 }
                 /* Center Dot */
                 @keyframes pingDot_0 {
@@ -4843,7 +4925,7 @@
                 }
 
                 /* Base un-animated states */
-                .fp-radar-ring { r: 10; opacity: 0; }
+                .fp-radar-ring { transform-origin: 0 0; transform: scale(0.0416); opacity: 0; }
                 .fp-dot-0, .fp-p-dot, .fp-p-line, .fp-p-prize { opacity: 0; }
 
                 /* Triggered by IntersectionObserver */
@@ -4909,7 +4991,7 @@
               <circle cx="0" cy="0" r="190" fill="none" stroke="#ffd24a" stroke-width="2" stroke-dasharray="8 8" opacity=".5" />
               
               <!-- Expanding Radar Pulse -->
-              <circle cx="0" cy="0" r="60" fill="none" stroke="#10ff9f" class="fp-radar-ring" />
+              <circle cx="0" cy="0" r="240" fill="none" stroke="#10ff9f" class="fp-radar-ring" vector-effect="non-scaling-stroke" />
 
               <!-- Bullseye (Top Prize) -->
               <g class="v-pulse">
@@ -5011,8 +5093,8 @@
                     <circle cx="0" cy="0" r="6" fill="#ffd24a" />
                     <circle cx="0" cy="0" r="12" fill="none" stroke="#ffd24a" stroke-width="1.5" opacity="0.6" />
                   </g>
-                  <path d="M 0 0 L 20 0 L 40 -20" class="fp-p-line d-4" stroke="#ffd24a" stroke-width="2" />
-                  <g transform="translate(70, -50)">
+                  <path d="M 0 0 L 15 0 L 30 -15" class="fp-p-line d-4" stroke="#ffd24a" stroke-width="2" />
+                  <g transform="translate(55, -45)">
                     <g class="fp-p-prize d-4">
                       <g class="v-coin-2">
                         <circle cx="0" cy="0" r="22" fill="url(#fpCoin)" stroke="#fff" stroke-width="2" />
@@ -5032,7 +5114,7 @@
                     <circle cx="0" cy="0" r="6" fill="#ff1f8f" />
                     <circle cx="0" cy="0" r="12" fill="none" stroke="#ff1f8f" stroke-width="1.5" opacity="0.6" />
                   </g>
-                  <path d="M 0 0 L 10 -10 L 25 -10" class="fp-p-line d-2" stroke="#ff1f8f" stroke-width="1.5" />
+                  <path d="M 0 0 L 10 4 L 30 4" class="fp-p-line d-2" stroke="#ff1f8f" stroke-width="1.5" />
                   <g transform="translate(55, -25)">
                     <g class="fp-p-prize d-2">
                       <g transform="scale(0.6)">
@@ -5159,11 +5241,11 @@
             </div>
             <div class="ptag">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v8"></path><path d="M8 12h8"></path><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"></path></svg>
-              Cash zones
+              Bonus targets
             </div>
             <div class="ptag">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
-              Better odds
+              Higher Payout
             </div>
           </div>
         </div>
@@ -5410,8 +5492,8 @@
       </div>
     </div>
       <div class="howto-cta">
-        <a class="cta cta-xl" href="/welcome-bonus/">
-          Claim My 5 Free Plays <span class="arrow">→</span>
+        <a class="cta cta-xl" href="https://prizerunners.com/web/register">
+          Start Playing Now <span class="arrow">→</span>
         </a>
       </div>
     </div>
@@ -5493,15 +5575,20 @@
 
     <div class="foot-inner">
       <span class="eyebrow eyebrow-pink"><span class="dot-pink"></span> Limited Time Offer</span>
-      <h2 class="foot-title"><span class="foot-title-small">DON'T MISS OUT</span><span class="foot-title-main">YOUR SHOT AT</span><span class="accent">REAL PRIZES</span></h2>
+      <h2 class="foot-title"><span class="foot-title-small">DON'T MISS OUT</span><span class="foot-title-main">START WINNING</span><span class="accent">REAL PRIZES</span></h2>
       <p class="foot-sub">Register in seconds. Win the moment you play.</p>
       <div class="foot-tags">
         <span class="foot-tag"><span class="foot-tag-check">&#10003;</span> Instant Win</span>
         <span class="foot-tag"><span class="foot-tag-check">&#10003;</span> 100% Skill-Based</span>
         <span class="foot-tag"><span class="foot-tag-check">&#10003;</span> Real Winners</span>
       </div>
-      <a class="cta cta-xl" href="/welcome-bonus/">
-        Play to Win Now <span class="arrow">→</span>
+      
+      <div class="foot-bonus-badge">
+        <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+        <span><span style="opacity:0.7; font-weight:600; margin-right:4px;">Included:</span> 100% First Deposit Match Bonus</span>
+      </div>
+      <a class="cta cta-xl" href="https://prizerunners.com/web/register">
+        Start Playing Now <span class="arrow">→</span>
       </a>
       <p class="foot-note">Sign Up &amp; Get 5 FREE Plays</p>
     </div>
@@ -5532,7 +5619,7 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const registerLinks = document.querySelectorAll('a[href="/welcome-bonus/"]');
+      const registerLinks = document.querySelectorAll('a[href="https://prizerunners.com/web/register"]');
       if (window.location.search && registerLinks.length) {
         registerLinks.forEach((link) => {
           const url = new URL(link.href);
@@ -5578,21 +5665,16 @@
       // Touch Swipe Events
       track.addEventListener('touchstart', (e) => {
         isDown = true;
-        startX = e.touches[0].pageX - track.offsetLeft;
-        scrollLeft = track.scrollLeft;
         cancelAnimationFrame(autoScrollId);
       });
       track.addEventListener('touchend', () => {
         isDown = false;
         startAutoScroll();
       });
-      track.addEventListener('touchmove', (e) => {
-        if (!isDown) return;
-        const x = e.touches[0].pageX - track.offsetLeft;
-        const walk = (x - startX) * 1.5;
-        track.scrollLeft = scrollLeft - walk;
+      track.addEventListener('touchcancel', () => {
+        isDown = false;
+        startAutoScroll();
       });
-
       // Auto Scroll Logic
       function scrollLoop() {
         if (!isDown) {
@@ -5639,5 +5721,3 @@
 </body>
 
 </html>
-
-
