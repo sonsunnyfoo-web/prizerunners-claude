@@ -3070,6 +3070,7 @@
       scroll-behavior: auto;
       scrollbar-width: none;
       -ms-overflow-style: none;
+      -webkit-overflow-scrolling: touch;
       cursor: grab;
     }
     
@@ -4311,7 +4312,7 @@
                 <h4>Jamie</h4>
                 <span class="wverified"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg> Verified</span>
               </div>
-              <div class="wprize">🎁 Won <b>Rolex Submariner</b></div>
+              <div class="wprize">🎁 Won <b>Rolex Daytona</b></div>
               <div class="wcard-meta">Manchester · Week 26</div>
             </div>
           </article>
@@ -4323,7 +4324,7 @@
                 <h4>Joe</h4>
                 <span class="wverified"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg> Verified</span>
               </div>
-              <div class="wprize">🎁 Won <b>£500 Cash Prize</b></div>
+              <div class="wprize">🎁 Won <b>£2,000 Cash Prize</b></div>
               <div class="wcard-meta">Leeds · Week 24</div>
             </div>
           </article>
@@ -4347,7 +4348,7 @@
                 <h4>Michael</h4>
                 <span class="wverified"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg> Verified</span>
               </div>
-              <div class="wprize">🎁 Won <b>£500 Cash Prize</b></div>
+              <div class="wprize">🎁 Won <b>£840 Cash Prize</b></div>
               <div class="wcard-meta">UK · Week 23</div>
             </div>
           </article>
@@ -4359,7 +4360,7 @@
                 <h4>Rob</h4>
                 <span class="wverified"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg> Verified</span>
               </div>
-              <div class="wprize">🎁 Won <b>£1,000 Cash Prize</b></div>
+              <div class="wprize">🎁 Won <b>£5,000 Cash Prize</b></div>
               <div class="wcard-meta">Birmingham · Week 20</div>
             </div>
           </article>
@@ -4423,7 +4424,7 @@
                 <h4>Jamie</h4>
                 <span class="wverified"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg> Verified</span>
               </div>
-              <div class="wprize">🎁 Won <b>Rolex Submariner</b></div>
+              <div class="wprize">🎁 Won <b>Rolex Daytona</b></div>
               <div class="wcard-meta">Manchester · Week 26</div>
             </div>
           </article>
@@ -4435,7 +4436,7 @@
                 <h4>Joe</h4>
                 <span class="wverified"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg> Verified</span>
               </div>
-              <div class="wprize">🎁 Won <b>£500 Cash Prize</b></div>
+              <div class="wprize">🎁 Won <b>£2,000 Cash Prize</b></div>
               <div class="wcard-meta">Leeds · Week 24</div>
             </div>
           </article>
@@ -4459,7 +4460,7 @@
                 <h4>Michael</h4>
                 <span class="wverified"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg> Verified</span>
               </div>
-              <div class="wprize">🎁 Won <b>£500 Cash Prize</b></div>
+              <div class="wprize">🎁 Won <b>£840 Cash Prize</b></div>
               <div class="wcard-meta">UK · Week 23</div>
             </div>
           </article>
@@ -4471,7 +4472,7 @@
                 <h4>Rob</h4>
                 <span class="wverified"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg> Verified</span>
               </div>
-              <div class="wprize">🎁 Won <b>£1,000 Cash Prize</b></div>
+              <div class="wprize">🎁 Won <b>£5,000 Cash Prize</b></div>
               <div class="wcard-meta">Birmingham · Week 20</div>
             </div>
           </article>
@@ -4617,12 +4618,14 @@
       let startX;
       let scrollLeft;
       let autoScrollId;
+      let autoScrollPosition = track.scrollLeft;
 
       // Mouse Drag Events
       track.addEventListener('mousedown', (e) => {
         isDown = true;
         startX = e.pageX - track.offsetLeft;
         scrollLeft = track.scrollLeft;
+        autoScrollPosition = track.scrollLeft;
         cancelAnimationFrame(autoScrollId); // Pause auto-scroll on grab
       });
       track.addEventListener('mouseleave', () => {
@@ -4641,39 +4644,45 @@
         const x = e.pageX - track.offsetLeft;
         const walk = (x - startX) * 1.5; // Drag speed multiplier
         track.scrollLeft = scrollLeft - walk;
+        autoScrollPosition = track.scrollLeft;
       });
       
       // Touch Swipe Events
       track.addEventListener('touchstart', (e) => {
         isDown = true;
-        startX = e.touches[0].pageX - track.offsetLeft;
-        scrollLeft = track.scrollLeft;
+        autoScrollPosition = track.scrollLeft;
         cancelAnimationFrame(autoScrollId);
       });
+      track.addEventListener('touchmove', () => {
+        autoScrollPosition = track.scrollLeft;
+      }, { passive: true });
       track.addEventListener('touchend', () => {
         isDown = false;
+        autoScrollPosition = track.scrollLeft;
         startAutoScroll();
       });
-      track.addEventListener('touchmove', (e) => {
-        if (!isDown) return;
-        const x = e.touches[0].pageX - track.offsetLeft;
-        const walk = (x - startX) * 1.5;
-        track.scrollLeft = scrollLeft - walk;
+      track.addEventListener('touchcancel', () => {
+        isDown = false;
+        autoScrollPosition = track.scrollLeft;
+        startAutoScroll();
       });
 
       // Auto Scroll Logic
       function scrollLoop() {
         if (!isDown) {
-          track.scrollLeft += 0.8; // Slower glide speed
+          autoScrollPosition += 1.15; // Mobile-safe glide speed
+          track.scrollLeft = autoScrollPosition;
         }
         
         // Loop logic: if we scroll exactly halfway (width of one group + gap), reset to 0
         const maxScroll = track.scrollWidth / 2;
         if (track.scrollLeft >= maxScroll) {
-          track.scrollLeft -= maxScroll;
+          autoScrollPosition -= maxScroll;
+          track.scrollLeft = autoScrollPosition;
         } else if (track.scrollLeft <= 0 && isDown) {
           // If dragging backwards past 0, jump to the middle
-          track.scrollLeft += maxScroll;
+          autoScrollPosition += maxScroll;
+          track.scrollLeft = autoScrollPosition;
         }
 
         autoScrollId = requestAnimationFrame(scrollLoop);
@@ -4690,5 +4699,3 @@
 </body>
 
 </html>
-
-
