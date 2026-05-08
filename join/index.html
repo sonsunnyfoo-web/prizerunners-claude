@@ -5672,12 +5672,17 @@
         autoScrollPosition = track.scrollLeft;
         cancelAnimationFrame(autoScrollId);
       });
+      track.addEventListener('touchmove', () => {
+        autoScrollPosition = track.scrollLeft;
+      }, { passive: true });
       track.addEventListener('touchend', () => {
         isDown = false;
+        autoScrollPosition = track.scrollLeft;
         startAutoScroll();
       });
       track.addEventListener('touchcancel', () => {
         isDown = false;
+        autoScrollPosition = track.scrollLeft;
         startAutoScroll();
       });
       // Auto Scroll Logic
