@@ -3287,6 +3287,7 @@
       scroll-behavior: auto;
       scrollbar-width: none;
       -ms-overflow-style: none;
+      -webkit-overflow-scrolling: touch;
       cursor: grab;
     }
     
@@ -5216,7 +5217,7 @@
               </div>
               <div class="compare-text">
                 <h4>Other Competitions</h4>
-                <p>One Random Draw. One Prize. One Winner.<br>Everyone else loses.</p>
+                <p>One Random Draw. One Prize. One Winner. Everyone else loses.</p>
               </div>
             </div>
             <div class="compare-card compare-new">
@@ -5227,7 +5228,7 @@
               </div>
               <div class="compare-text">
                 <h4>PrizeRunners</h4>
-                <p>100% Skill Game. No Random Draws. Multiple Prizes.<br>Everyone can find it.</p>
+                <p>100% Skill Game. No Random Draws. Multiple Prizes. Everyone can find it.</p>
               </div>
             </div>
           </div>
@@ -5636,12 +5637,14 @@
       let startX;
       let scrollLeft;
       let autoScrollId;
+      let autoScrollPosition = track.scrollLeft;
 
       // Mouse Drag Events
       track.addEventListener('mousedown', (e) => {
         isDown = true;
         startX = e.pageX - track.offsetLeft;
         scrollLeft = track.scrollLeft;
+        autoScrollPosition = track.scrollLeft;
         cancelAnimationFrame(autoScrollId); // Pause auto-scroll on grab
       });
       track.addEventListener('mouseleave', () => {
@@ -5660,11 +5663,13 @@
         const x = e.pageX - track.offsetLeft;
         const walk = (x - startX) * 1.5; // Drag speed multiplier
         track.scrollLeft = scrollLeft - walk;
+        autoScrollPosition = track.scrollLeft;
       });
       
       // Touch Swipe Events
       track.addEventListener('touchstart', (e) => {
         isDown = true;
+        autoScrollPosition = track.scrollLeft;
         cancelAnimationFrame(autoScrollId);
       });
       track.addEventListener('touchend', () => {
@@ -5678,16 +5683,19 @@
       // Auto Scroll Logic
       function scrollLoop() {
         if (!isDown) {
-          track.scrollLeft += 0.8; // Slower glide speed
+          autoScrollPosition += 1.15; // Mobile-safe glide speed
+          track.scrollLeft = autoScrollPosition;
         }
         
         // Loop logic: if we scroll exactly halfway (width of one group + gap), reset to 0
         const maxScroll = track.scrollWidth / 2;
         if (track.scrollLeft >= maxScroll) {
-          track.scrollLeft -= maxScroll;
+          autoScrollPosition -= maxScroll;
+          track.scrollLeft = autoScrollPosition;
         } else if (track.scrollLeft <= 0 && isDown) {
           // If dragging backwards past 0, jump to the middle
-          track.scrollLeft += maxScroll;
+          autoScrollPosition += maxScroll;
+          track.scrollLeft = autoScrollPosition;
         }
 
         autoScrollId = requestAnimationFrame(scrollLoop);
