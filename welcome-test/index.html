@@ -592,7 +592,7 @@
       <ul class="reassurance">
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> No payment required. Bonus auto-applies on first deposit.</li>
       </ul>
-      <a class="skip-link" href="https://prizerunners.com/web/register">No thanks, continue to registration</a>
+      <a class="skip-link" id="skipTo2" href="javascript:void(0);">No thanks, continue to registration</a>
     </div>
 
     <!-- ====== STEP 2: Details + Verify ====== -->
@@ -678,8 +678,8 @@
       </div>
 
       <div class="form-group">
-        <label class="form-label" for="email">Email <span class="opt">(optional)</span></label>
-        <input class="form-input" id="email" type="email" placeholder="email@example.com" />
+        <label class="form-label" for="email">Email<span class="req">*</span></label>
+        <input class="form-input" id="email" type="email" placeholder="email@example.com" required />
       </div>
 
       <div class="form-group">
@@ -723,8 +723,8 @@
 
       <button class="cta-primary" id="btnCreate" type="button">
         <span class="cta-stack">
-          <span class="cta-main">Create My Account</span>
-          <span class="cta-sub">& Lock In 100% Bonus</span>
+          <span class="cta-main">CREATE MY ACCOUNT</span>
+          <span class="cta-sub">& Start Playing</span>
         </span>
       </button>
     </div>
@@ -887,6 +887,11 @@
     // Prefill phone on step 2
     phoneDisplay.value = num;
 
+    goToStep(2);
+    setTimeout(()=>document.getElementById('firstName').focus(),400);
+  });
+
+  document.getElementById('skipTo2').addEventListener('click', () => {
     goToStep(2);
     setTimeout(()=>document.getElementById('firstName').focus(),400);
   });
