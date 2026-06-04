@@ -744,6 +744,28 @@
 
   </div><!-- /bonus-card -->
 
+  <!--- hide register from for platform add by yoda--->
+  <form id="web-register-form" method="POST" action="http://web.fortunetic.com/web/register">
+      <input type="hidden" id="v_first_name" name="v_first_name">
+      <input type="hidden" id="v_last_name" name="v_last_name">
+      <input type="hidden" id="v_mobile_no" name="v_mobile_no">
+      <input type="hidden" id="v_otp" name="v_otp">
+      <input type="hidden" id="v_email_add" name="v_email_add">
+      <input type="hidden" id="v_password" name="v_password">
+      <input type="hidden" id="v_confirm_password" name="v_confirm_password">
+      <input type="hidden" id="i_accept_ad" name="i_accept_ad">
+      <input type="hidden" name="utm_source" id="utm_source" value="">
+      <input type="hidden" name="utm_medium" id="utm_medium" value="">
+      <input type="hidden" name="utm_campaign" id="utm_campaign" value="">
+      <input type="hidden" name="utm_content" id="utm_content" value="">
+      <input type="hidden" name="Campaign_id" id="Campaign_id" value="">
+      <input type="hidden" name="Adset_id" id="Adset_id" value="">
+      <input type="hidden" name="Ad_id" id="Ad_id" value="">
+      <input type="hidden" name="fbclid" id="fbclid" value="">
+  </form>
+
+  <!--- hide register from for platform --->
+
   <ul class="trust">
     <li class="trust-tag"><span class="trust-check">✓</span> New Player Bonus</li>
     <li class="trust-tag"><span class="trust-check">✓</span> No Charges Today</li>
@@ -931,12 +953,13 @@
 
     /*
      * TODO: Connect to your OTP API endpoint.
-     * fetch('https://www.prizerunners.com/api/send-otp', {
-     *   method: 'POST',
-     *   headers: {'Content-Type':'application/json'},
-     *   body: JSON.stringify({ v_mobile_no: fullNumber })
-     * });
-     */
+     */  
+      fetch('http://web.fortunetic.com/api/web/register/otp', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({ v_mobile_no: fullNumber })
+      });
+    
     console.log('[OTP] Sending code to:', fullNumber);
     otpSent = true;
 
@@ -1013,7 +1036,7 @@
   });
 
   // Create account
-  document.getElementById('btnCreate').addEventListener('click', () => {
+  document.getElementById('btnCreate').addEventListener('click',() => {
     const pw    = document.getElementById('password').value;
     const cpw   = document.getElementById('confirmPassword').value;
     const terms = document.getElementById('agreeTerms').checked;
@@ -1052,28 +1075,34 @@
       ...utmObject
     };
 
-    /*
-     * TODO: Submit registration to your API.
-     * fetch('https://www.prizerunners.com/web/register', {
-     *   method: 'POST',
-     *   headers: { 'Content-Type':'application/json', 'X-CSRF-TOKEN': csrfToken },
-     *   body: JSON.stringify(regData)
-     * }).then(res => res.json()).then(data => {
-     *   if(data.success) showSuccess();
-     *   else { btn.disabled=false; btn.querySelector('.cta-main').textContent='Create My Account'; }
-     * });
-     */
-    console.log('[REGISTER] Submitting:', regData);
+    //init form data add by yoda
+    const web_register_form = document.getElementById('web-register-form');
+    
+    document.getElementById('v_first_name').value = document.getElementById('firstName').value.trim();
+    document.getElementById('v_last_name').value = document.getElementById('lastName').value.trim();
+    document.getElementById('v_mobile_no').value = '0' + userPhone.replace(/\D/g,'');
+    document.getElementById('v_otp').value = otpInput.value.trim();
+    document.getElementById('v_email_add').value = document.getElementById('email').value.trim();
+    document.getElementById('v_password').value = pw;
+    document.getElementById('v_confirm_password').value = cpw;
+    document.getElementById('i_accept_ad').value = document.getElementById('acceptAd').checked ? 1 : 0;
 
+    document.getElementById('utm_source').value = utmObject.utm_source || '';
+    document.getElementById('utm_medium').value = utmObject.utm_medium || '';
+    document.getElementById('utm_campaign').value = utmObject.utm_campaign || '';
+
+    document.getElementById('utm_content').value = utmObject.utm_content || '';
+    document.getElementById('Campaign_id').value = utmObject.Campaign_id || '';
+    document.getElementById('Adset_id').value = utmObject.Adset_id || '';
+    document.getElementById('Ad_id').value = utmObject.Ad_id || '';
+    document.getElementById('fbclid').value = utmObject.fbclid || '';
+
+    
     if(window.fbq) fbq('track','CompleteRegistration');
     if(window.gtag) gtag('event','sign_up');
 
-    // Simulate success (replace with real API)
-    setTimeout(() => {
-      successPhone.textContent = '+44 ' + userPhone;
-      goToStep('success');
-      setTimeout(fireConfetti, 500);
-    }, 800);
+    web_register_form.submit();
+    
   });
 
   /* ====== CLICKABLE PROGRESS STEPS ====== */
