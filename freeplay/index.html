@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>PrizeRunners | Claim 5 Free Plays</title>
+  <link rel="icon" type="image/png" href="../Logo/PR_Logo_Pink.png" />
+  <link rel="apple-touch-icon" href="../Logo/PR_Logo_Pink.png" />
+  <meta name="description" content="Claim 5 free plays with PrizeRunners and play skill games for real prizes. No card required." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Figtree:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18093478400"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18093478400');
+  </script>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1292335899304352');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1292335899304352&ev=PageView&noscript=1" alt="" /></noscript>
+
+  <style>
+    :root {
+      --pink: #ec2b91;
+      --pink-hot: #f51f8f;
+      --orange: #ff7a00;
+      --ink: #11131a;
+      --muted: #5b5e68;
+      --line: #ececf1;
+      --white: #fff;
+      --shadow: 0 18px 50px rgba(20, 20, 30, .16);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      background: #fff;
+      color: var(--ink);
+      font-family: "Figtree", system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { border: 0; background: none; color: inherit; font: inherit; cursor: pointer; }
+    img { display: block; max-width: 100%; }
+
+    .offer-bar {
+      min-height: 46px;
+      background: linear-gradient(90deg, #ec1687 0%, #ff3f52 44%, #ff8500 100%);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(16px, 8vw, 320px);
+      padding: 7px 18px;
+      font-weight: 900;
+      font-size: clamp(11px, 1.2vw, 14px);
+      letter-spacing: .02em;
+      text-transform: uppercase;
+    }
+
+    .offer-copy {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-align: center;
+    }
+
+    .offer-icon {
+      width: 20px;
+      height: 20px;
+      flex: 0 0 auto;
+    }
+
+    .offer-cta {
+      flex: 0 0 auto;
+      min-width: 178px;
+      padding: 10px 24px;
+      border-radius: 999px;
+      background: #fff;
+      color: #f04b35;
+      box-shadow: 0 7px 18px rgba(139, 35, 14, .14);
+      text-align: center;
+      font-size: 12px;
+    }
+
+    .site-nav {
+      height: 68px;
+      background: rgba(255, 255, 255, .98);
+      border-bottom: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: minmax(150px, 1fr) auto minmax(150px, 1fr);
+      align-items: center;
+      gap: 24px;
+      padding: 0 clamp(22px, 5vw, 72px);
+      position: relative;
+      z-index: 20;
+    }
+
+    .brand img { width: 150px; height: auto; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(24px, 4vw, 48px);
+      color: #353844;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .nav-links a:hover { color: var(--pink); }
+
+    .nav-action { justify-self: end; }
+
+    .primary-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-height: 44px;
+      padding: 0 28px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #f01b90, #ef2fa0);
+      color: #fff;
+      font-weight: 900;
+      font-size: 14px;
+      text-transform: uppercase;
+      box-shadow: 0 12px 24px rgba(236, 43, 145, .22);
+      transition: transform .18s ease, box-shadow .18s ease;
+      white-space: nowrap;
+    }
+
+    .primary-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 30px rgba(236, 43, 145, .28);
+    }
+
+    .hero-slider {
+      position: relative;
+      min-height: clamp(500px, 58vw, 680px);
+      background: #f4f5f8;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: minmax(320px, 42%) 1fr;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .45s ease;
+    }
+
+    .slide.is-active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .slide-copy {
+      position: relative;
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(46px, 7vw, 92px) 4vw clamp(54px, 7vw, 92px) clamp(56px, 9vw, 122px);
+      background: linear-gradient(90deg, #fff 0%, rgba(255,255,255,.96) 56%, rgba(255,255,255,.65) 78%, rgba(255,255,255,0) 100%);
+    }
+
+    .slide-badge {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 22px;
+      padding: 7px 13px;
+      border-radius: 7px;
+      background: #070707;
+      color: #ffd238;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      box-shadow: 0 8px 20px rgba(0,0,0,.16);
+    }
+
+    .slide-title {
+      max-width: 520px;
+      font-family: "Archivo Black", "Figtree", system-ui, sans-serif;
+      font-size: clamp(42px, 5.4vw, 76px);
+      line-height: .98;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .slide-title .accent {
+      display: block;
+      background: linear-gradient(90deg, var(--pink) 0%, #ff327e 46%, var(--orange) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .slide-sub {
+      margin-top: 18px;
+      max-width: 420px;
+      color: #393b44;
+      font-size: clamp(15px, 1.45vw, 18px);
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+    .hero-cta { margin-top: 24px; width: fit-content; min-width: 296px; min-height: 50px; }
+
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      margin-top: 24px;
+      color: #343740;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .trust-row span {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      white-space: nowrap;
+    }
+
+    .trust-row svg { width: 17px; height: 17px; color: #4d4f56; }
+
+    .slide-visual {
+      position: relative;
+      overflow: hidden;
+      background: #dfe4eb;
+    }
+
+    .slide-visual::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: var(--hero-image);
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.04);
+      transition: transform 6s ease;
+    }
+
+    .slide.is-active .slide-visual::before { transform: scale(1); }
+
+    .slide-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 64% 58% at 54% 48%, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 45%, rgba(0,0,0,.12) 100%),
+        linear-gradient(90deg, rgba(255,255,255,.32) 0%, rgba(255,255,255,0) 42%);
+    }
+
+    .slide-one { --hero-image: url('https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1600&q=82'); }
+    .slide-two { --hero-image: url('https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=1600&q=82'); }
+    .slide-three { --hero-image: url('https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=1600&q=82'); }
+
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      z-index: 15;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #fff;
+      color: #6d7079;
+      box-shadow: var(--shadow);
+      transform: translateY(-50%);
+      transition: transform .18s ease, color .18s ease;
+    }
+
+    .slider-arrow:hover { color: var(--pink); transform: translateY(-50%) scale(1.04); }
+    .slider-arrow.prev { left: 18px; }
+    .slider-arrow.next { right: 18px; }
+    .slider-arrow svg { width: 22px; height: 22px; }
+
+    .slider-dots {
+      position: absolute;
+      left: 50%;
+      bottom: 19px;
+      z-index: 16;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transform: translateX(-50%);
+    }
+
+    .slider-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(24, 25, 30, .28);
+      box-shadow: 0 0 0 4px rgba(255,255,255,.7);
+      transition: width .2s ease, background .2s ease;
+    }
+
+    .slider-dot.is-active {
+      width: 12px;
+      height: 12px;
+      background: var(--pink);
+    }
+
+    .next-section-peek {
+      min-height: 54px;
+      background: #fff;
+    }
+
+    @media (max-width: 920px) {
+      .offer-bar { gap: 12px; justify-content: space-between; }
+      .offer-cta { min-width: auto; padding: 9px 16px; }
+      .site-nav { grid-template-columns: 1fr auto; height: auto; min-height: 66px; padding: 12px 18px; }
+      .brand img { width: 132px; }
+      .nav-links { display: none; }
+      .nav-action { justify-self: end; }
+      .nav-action .primary-btn { min-height: 42px; padding: 0 18px; font-size: 12px; }
+      .slide { grid-template-columns: 1fr; min-height: 660px; }
+      .slide-copy {
+        min-height: 390px;
+        padding: 40px 24px 26px;
+        background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,.94) 74%, rgba(255,255,255,0) 100%);
+        justify-content: flex-start;
+        text-align: left;
+      }
+      .slide-visual { min-height: 300px; }
+      .slide-title { font-size: clamp(40px, 12vw, 68px); }
+      .hero-cta { width: 100%; min-width: 0; }
+      .slider-arrow { width: 40px; height: 40px; top: 69%; }
+      .slider-arrow.prev { left: 12px; }
+      .slider-arrow.next { right: 12px; }
+      .slider-dots { bottom: 14px; }
+    }
+
+    @media (max-width: 560px) {
+      .offer-bar { min-height: 42px; padding: 8px 12px; }
+      .offer-copy { gap: 7px; font-size: 10px; line-height: 1.25; }
+      .offer-icon { width: 17px; height: 17px; }
+      .offer-cta { display: none; }
+      .brand img { width: 116px; }
+      .nav-action .primary-btn { padding: 0 14px; font-size: 11px; }
+      .hero-slider { min-height: 690px; }
+      .slide { min-height: 690px; }
+      .slide-copy { min-height: 418px; padding: 32px 22px 24px; }
+      .slide-badge { margin-bottom: 18px; font-size: 11px; }
+      .slide-title { max-width: 330px; }
+      .slide-sub { font-size: 15px; }
+      .trust-row { gap: 11px 14px; font-size: 12px; }
+      .trust-row svg { width: 15px; height: 15px; }
+      .slide-visual { min-height: 272px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="offer-bar">
+      <div class="offer-copy">
+        <svg class="offer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 1 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 1 0 0-5C13 2 12 7 12 7z"/></svg>
+        <span>New players get 5 free plays + 100% first top-up match</span>
+      </div>
+      <a class="offer-cta" href="../welcome-bonus/">Claim Free Plays</a>
+    </div>
+
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a class="brand" href="../" aria-label="PrizeRunners home">
+        <img src="../Logo/PR_Logo_Pink.png" alt="PrizeRunners" />
+      </a>
+      <div class="nav-links">
+        <a href="#how-it-works">How It Works</a>
+        <a href="#prizes">Prizes</a>
+        <a href="#winners">Winners</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="nav-action">
+        <a class="primary-btn" href="../welcome-bonus/">Claim 5 Free Plays</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-slider" aria-label="Featured PrizeRunners prizes">
+      <article class="slide slide-one is-active" data-slide>
+        <div class="slide-copy">
+          <span class="slide-badge">Top Prize</span>
+          <h1 class="slide-title">Win This <span class="accent">Volkswagen Golf R</span></h1>
+          <p class="slide-sub">Play Find the Impact and win instantly.</p>
+          <a class="primary-btn hero-cta" href="../welcome-bonus/">Claim 5 Free Plays <span aria-hidden="true">&gt;</span></a>
+          <div class="trust-row" aria-label="Offer benefits">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M7 15h3"/></svg>No card required</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-8 13h7l-1 7 8-13h-7z"/></svg>100% skill</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-5"/></svg>Instant win</span>
+          </div>
+        </div>
+        <div class="slide-visual" role="img" aria-label="Prize car"></div>
+      </article>
+
+      <article class="slide slide-two" data-slide>
+        <div class="slide-copy">
+          <span class="slide-badge">Luxury Prize</span>
+          <h2 class="slide-title">Win A <span class="accent">Rolex Watch</span></h2>
+          <p class="slide-sub">Pick your spot, submit your play, and compete for luxury rewards.</p>
+          <a class="primary-btn hero-cta" href="../welcome-bonus/">Claim 5 Free Plays <span aria-hidden="true">&gt;</span></a>
+          <div class="trust-row" aria-label="Offer benefits">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M7 15h3"/></svg>No card required</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-8 13h7l-1 7 8-13h-7z"/></svg>100% skill</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-5"/></svg>Instant win</span>
+          </div>
+        </div>
+        <div class="slide-visual" role="img" aria-label="Luxury watch prize"></div>
+      </article>
+
+      <article class="slide slide-three" data-slide>
+        <div class="slide-copy">
+          <span class="slide-badge">Tech Prize</span>
+          <h2 class="slide-title">Win The <span class="accent">Latest iPhone</span></h2>
+          <p class="slide-sub">Start with 5 free plays and try the game before topping up.</p>
+          <a class="primary-btn hero-cta" href="../welcome-bonus/">Claim 5 Free Plays <span aria-hidden="true">&gt;</span></a>
+          <div class="trust-row" aria-label="Offer benefits">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M7 15h3"/></svg>No card required</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-8 13h7l-1 7 8-13h-7z"/></svg>100% skill</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-5"/></svg>Instant win</span>
+          </div>
+        </div>
+        <div class="slide-visual" role="img" aria-label="Phone prize"></div>
+      </article>
+
+      <button class="slider-arrow prev" type="button" aria-label="Previous prize" data-prev>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <button class="slider-arrow next" type="button" aria-label="Next prize" data-next>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
+      <div class="slider-dots" aria-label="Prize slides" data-dots></div>
+    </section>
+
+    <div class="next-section-peek" aria-hidden="true"></div>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const trackedLinks = document.querySelectorAll('a[href="../welcome-bonus/"]');
+      if (window.location.search && trackedLinks.length) {
+        trackedLinks.forEach((link) => {
+          const url = new URL(link.href, window.location.href);
+          const currentParams = new URLSearchParams(window.location.search);
+          currentParams.forEach((value, key) => url.searchParams.set(key, value));
+          link.href = url.toString();
+        });
+      }
+
+      const slides = Array.from(document.querySelectorAll('[data-slide]'));
+      const dotsWrap = document.querySelector('[data-dots]');
+      const prev = document.querySelector('[data-prev]');
+      const next = document.querySelector('[data-next]');
+      let active = 0;
+      let timer;
+
+      slides.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'slider-dot' + (index === 0 ? ' is-active' : '');
+        dot.setAttribute('aria-label', 'Show slide ' + (index + 1));
+        dot.addEventListener('click', () => show(index, true));
+        dotsWrap.appendChild(dot);
+      });
+
+      const dots = Array.from(dotsWrap.children);
+
+      function show(index, manual) {
+        active = (index + slides.length) % slides.length;
+        slides.forEach((slide, i) => slide.classList.toggle('is-active', i === active));
+        dots.forEach((dot, i) => dot.classList.toggle('is-active', i === active));
+        if (manual) restart();
+      }
+
+      function restart() {
+        clearInterval(timer);
+        timer = setInterval(() => show(active + 1), 5200);
+      }
+
+      prev.addEventListener('click', () => show(active - 1, true));
+      next.addEventListener('click', () => show(active + 1, true));
+      restart();
+    });
+  </script>
+</body>
+</html>
