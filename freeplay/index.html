@@ -34,28 +34,28 @@
     img { display: block; max-width: 100%; }
     .page { width: 100%; overflow-x: hidden; background: #fff; }
 
-    .promo-bar { width: 100%; background: linear-gradient(90deg, #ec2f91 0%, #ff4c55 50%, #ff8a00 100%); color: #fff; font-size: 14px; font-weight: 900; text-transform: uppercase; }
-    .promo-inner { max-width: 1180px; margin: 0 auto; padding: 10px 20px; min-height: 46px; display: flex; align-items: center; justify-content: center; gap: 22px; position: relative; }
-    .promo-text { display: flex; align-items: center; gap: 9px; text-align: center; }
-    .promo-text svg { width: 19px; height: 19px; flex: 0 0 auto; }
-    .promo-cta { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); background: #fff; color: #f04a61; padding: 8px 20px; border-radius: 999px; font-size: 12px; font-weight: 900; box-shadow: 0 4px 16px rgba(0,0,0,.12); white-space: nowrap; }
+    .promo-bar { width: 100%; background: linear-gradient(90deg, #ec2f91 0%, #ff4c55 50%, #ff8a00 100%); color: #fff; font-size: 12px; font-weight: 900; text-transform: uppercase; }
+    .promo-inner { max-width: 1180px; margin: 0 auto; padding: 6px 20px; min-height: 34px; display: flex; align-items: center; justify-content: center; gap: 18px; position: relative; }
+    .promo-text { display: flex; align-items: center; gap: 8px; text-align: center; }
+    .promo-text svg { width: 16px; height: 16px; flex: 0 0 auto; }
+    .promo-cta { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); background: #fff; color: #f04a61; padding: 6px 16px; border-radius: 999px; font-size: 11px; font-weight: 900; box-shadow: 0 4px 16px rgba(0,0,0,.12); white-space: nowrap; }
 
     .site-header { background: #fff; border-bottom: 1px solid rgba(15,23,42,.08); box-shadow: 0 8px 24px rgba(15,23,42,.05); position: sticky; top: 0; z-index: 20; }
-    .header-inner { max-width: 1180px; margin: 0 auto; padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .header-inner { max-width: 1180px; margin: 0 auto; padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; gap: 22px; }
     .logo img { width: 59px; height: auto; }
-    .nav { display: flex; align-items: center; gap: 34px; font-size: 14px; font-weight: 700; color: #374151; }
+    .nav { display: flex; align-items: center; gap: 30px; font-size: 13px; font-weight: 700; color: #374151; }
     .nav a:hover { color: #ec2f91; }
 
     .header-cta, .primary-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; border-radius: 999px; background: linear-gradient(90deg, #ec2f91 0%, #ff4c55 55%, #ff8a00 100%); color: #fff; font-size: 14px; font-weight: 900; text-transform: uppercase; box-shadow: 0 10px 24px rgba(236,47,145,.28); white-space: nowrap; transition: transform .18s ease, box-shadow .18s ease; }
-    .header-cta { padding: 13px 26px; }
+    .header-cta { padding: 10px 22px; font-size: 12px; }
     .primary-btn { min-height: 46px; padding: 0 28px; }
     .header-cta:hover, .primary-btn:hover { transform: translateY(-1px); box-shadow: 0 16px 34px rgba(236,47,145,.42); }
 
-    .hero-slider { position: relative; min-height: 390px; background: #f8fafc; overflow: hidden; }
+    .hero-slider { position: relative; min-height: 410px; background: #f8fafc; overflow: hidden; }
     .hero-track { display: flex; width: 100%; transform: translateX(0); transition: transform .62s cubic-bezier(.22,.7,.18,1); will-change: transform; }
-    .hero-slide { min-width: 100%; min-height: 390px; position: relative; overflow: hidden; background-size: cover; background-position: center right; }
+    .hero-slide { min-width: 100%; min-height: 410px; position: relative; overflow: hidden; background-size: cover; background-position: center right; }
     .hero-slide::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.94) 26%, rgba(255,255,255,.72) 42%, rgba(255,255,255,.2) 62%, rgba(255,255,255,.02) 100%); z-index: 1; }
-    .hero-inner { max-width: 1180px; margin: 0 auto; padding: 46px 20px 38px; position: relative; z-index: 2; min-height: 390px; display: flex; align-items: center; }
+    .hero-inner { max-width: 1180px; margin: 0 auto; padding: 50px 20px 42px; position: relative; z-index: 2; min-height: 410px; display: flex; align-items: center; }
     .hero-copy { width: 48%; max-width: 500px; }
     .prize-pill { display: inline-flex; align-items: center; gap: 7px; background: #111827; color: #ffd84d; border-radius: 999px; padding: 7px 14px; font-size: 12px; font-weight: 900; text-transform: uppercase; margin-bottom: 16px; box-shadow: 0 6px 18px rgba(0,0,0,.16); }
     .prize-pill svg { width: 15px; height: 15px; }
@@ -84,23 +84,23 @@
     @media (max-width: 900px) {
       .promo-cta, .nav { display: none; }
       .logo img { width: 53px; }
-      .header-inner { padding: 14px 18px; }
-      .header-cta { padding: 12px 18px; font-size: 12px; }
-      .hero-slider, .hero-slide { min-height: 455px; }
+      .header-inner { padding: 10px 18px; }
+      .header-cta { padding: 9px 14px; font-size: 11px; }
+      .hero-slider, .hero-slide { min-height: 475px; }
       .hero-slide { background-position: center bottom; }
       .hero-slide::before { background: linear-gradient(180deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.92) 48%, rgba(255,255,255,.18) 100%); }
-      .hero-inner { align-items: flex-start; min-height: 455px; padding-top: 38px; padding-bottom: 34px; }
+      .hero-inner { align-items: flex-start; min-height: 475px; padding-top: 42px; padding-bottom: 36px; }
       .hero-copy { width: 100%; max-width: 500px; }
       .hero-title { font-size: 40px; }
       .slider-arrow { display: none; }
     }
     @media (max-width: 520px) {
-      .promo-inner { padding: 9px 14px; }
-      .promo-text { font-size: 10px; line-height: 1.25; }
-      .promo-text svg { width: 17px; height: 17px; }
-      .header-inner { padding: 14px 16px; }
+      .promo-inner { padding: 6px 14px; min-height: 32px; }
+      .promo-text { font-size: 10px; line-height: 1.2; }
+      .promo-text svg { width: 15px; height: 15px; }
+      .header-inner { padding: 10px 16px; }
       .logo img { width: 48px; }
-      .header-cta { padding: 11px 14px; font-size: 11px; }
+      .header-cta { padding: 9px 12px; font-size: 10px; }
       .hero-title { font-size: 34px; }
       .hero-subtitle { font-size: 15px; }
       .primary-btn { width: 100%; }
