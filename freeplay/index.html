@@ -79,7 +79,17 @@
     .slider-dots { position: absolute; left: 50%; bottom: 20px; transform: translateX(-50%); display: flex; align-items: center; gap: 8px; z-index: 6; }
     .slider-dot { width: 8px; height: 8px; border-radius: 999px; background: rgba(17,24,39,.22); transition: width .2s ease, background .2s ease; }
     .slider-dot.active { width: 18px; background: #ec2f91; }
-    .section-placeholder { min-height: 56px; background: #fff; }
+
+    .benefits-section { background: #fff; padding: 28px 20px 22px; }
+    .benefits-panel { max-width: 1060px; margin: 0 auto; min-height: 96px; display: grid; grid-template-columns: repeat(4, 1fr); align-items: center; background: #fff; border: 1px solid rgba(15,23,42,.08); border-radius: 10px; box-shadow: 0 8px 24px rgba(15,23,42,.12); overflow: hidden; }
+    .benefit-item { min-width: 0; height: 100%; padding: 22px 24px; display: flex; align-items: center; gap: 18px; position: relative; }
+    .benefit-item + .benefit-item::before { content: ""; position: absolute; left: 0; top: 20px; bottom: 20px; width: 1px; background: rgba(15,23,42,.12); }
+    .benefit-icon { flex: 0 0 48px; width: 48px; height: 48px; color: #ec2f91; display: grid; place-items: center; }
+    .benefit-icon svg { width: 46px; height: 46px; stroke: currentColor; }
+    .benefit-copy { min-width: 0; }
+    .benefit-title { color: #111827; font-size: 13px; line-height: 1.15; font-weight: 900; text-transform: uppercase; margin-bottom: 6px; }
+    .benefit-text { color: #374151; font-size: 12px; line-height: 1.35; font-weight: 700; }
+    .section-placeholder { min-height: 34px; background: #fff; }
 
     @media (max-width: 900px) {
       .promo-cta, .nav { display: none; }
@@ -93,6 +103,12 @@
       .hero-copy { width: 100%; max-width: 500px; }
       .hero-title { font-size: 40px; }
       .slider-arrow { display: none; }
+      .benefits-section { padding: 20px 16px 18px; }
+      .benefits-panel { grid-template-columns: repeat(2, 1fr); }
+      .benefit-item { padding: 20px; }
+      .benefit-item + .benefit-item::before { display: none; }
+      .benefit-item:nth-child(odd) { border-right: 1px solid rgba(15,23,42,.1); }
+      .benefit-item:nth-child(-n+2) { border-bottom: 1px solid rgba(15,23,42,.1); }
     }
     @media (max-width: 520px) {
       .promo-inner { padding: 6px 14px; min-height: 32px; }
@@ -105,6 +121,11 @@
       .hero-subtitle { font-size: 15px; }
       .primary-btn { width: 100%; }
       .hero-trust { gap: 10px 12px; font-size: 11px; }
+      .benefits-panel { grid-template-columns: 1fr; }
+      .benefit-item { padding: 18px; border-right: 0 !important; border-bottom: 1px solid rgba(15,23,42,.1); }
+      .benefit-item:last-child { border-bottom: 0; }
+      .benefit-icon { flex-basis: 42px; width: 42px; height: 42px; }
+      .benefit-icon svg { width: 40px; height: 40px; }
     }
   </style>
 </head>
@@ -183,6 +204,47 @@
         <button class="slider-dot active" type="button" aria-label="Slide 1"></button>
         <button class="slider-dot" type="button" aria-label="Slide 2"></button>
         <button class="slider-dot" type="button" aria-label="Slide 3"></button>
+      </div>
+    </section>
+
+    <section class="benefits-section" aria-label="PrizeRunners benefits">
+      <div class="benefits-panel">
+        <div class="benefit-item">
+          <div class="benefit-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="18"/><path d="M12 14h24v20H12z"/><path d="M12 20h24"/><path d="M17 29h7"/><path d="M10 10l28 28"/></svg>
+          </div>
+          <div class="benefit-copy">
+            <h2 class="benefit-title">No Card Required</h2>
+            <p class="benefit-text">Claim your free plays first.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M27 4 13 28h11l-3 16 15-26H25l2-14Z"/></svg>
+          </div>
+          <div class="benefit-copy">
+            <h2 class="benefit-title">Instant Wins</h2>
+            <p class="benefit-text">Results shown straight away.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="15"/><circle cx="24" cy="24" r="7"/><path d="M24 9V4"/><path d="M39 24h5"/><path d="m34.5 13.5 5-5"/><path d="M24 24 42 6"/><path d="m38 6 4 .5.5 4"/></svg>
+          </div>
+          <div class="benefit-copy">
+            <h2 class="benefit-title">100% Skill</h2>
+            <p class="benefit-text">No draws.<br>No judges.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M24 5 39 11v11c0 9.5-6.2 16.8-15 21-8.8-4.2-15-11.5-15-21V11l15-6Z"/><path d="M24 14v20"/><path d="M14 24h20"/><path d="M18 18h12v12H18z"/></svg>
+          </div>
+          <div class="benefit-copy">
+            <h2 class="benefit-title">UK Based</h2>
+            <p class="benefit-text">Real prizes.<br>Real winners.</p>
+          </div>
+        </div>
       </div>
     </section>
 
