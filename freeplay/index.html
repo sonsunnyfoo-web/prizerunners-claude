@@ -9,7 +9,7 @@
   <meta name="description" content="Claim 5 free plays with PrizeRunners and play Find the Impact for real prizes. No card required." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Figtree:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Figtree:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18093478400"></script>
   <script>
@@ -66,11 +66,9 @@
     .hero-trust { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; color: #111827; font-size: 12px; font-weight: 800; }
     .hero-trust span { display: inline-flex; align-items: center; gap: 6px; }
     .hero-trust svg { width: 15px; height: 15px; color: #111827; opacity: .78; }
-
     .slide-golf { background-image: url('/freeplay/hero-golf-r.png'); }
     .slide-prizes { background-image: url('https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=1800&q=84'); }
     .slide-bonus { background-image: url('https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=1800&q=84'); }
-
     .slider-arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 5; width: 38px; height: 38px; border-radius: 999px; background: rgba(255,255,255,.92); box-shadow: 0 6px 20px rgba(15,23,42,.16); color: #111827; display: grid; place-items: center; transition: transform .18s ease, color .18s ease; }
     .slider-arrow:hover { color: #ec2f91; transform: translateY(-50%) scale(1.04); }
     .slider-arrow.prev { left: 22px; }
@@ -103,7 +101,68 @@
     .winner-name { color: #27369c; font-size: 18px; line-height: 1.1; font-weight: 900; margin-bottom: 3px; }
     .winner-prize { color: #374151; font-size: 15px; line-height: 1.2; font-weight: 800; margin-bottom: 10px; }
     .winner-meta { display: inline-flex; align-items: center; gap: 4px; width: fit-content; padding: 6px 10px; background: #d5f3d4; color: #166534; border: 1px solid #9fe09c; border-radius: 4px; font-size: 11px; font-weight: 900; }
-    .section-placeholder { min-height: 34px; background: #fff; }
+
+    .section-inner { max-width: 1280px; margin: 0 auto; padding: clamp(40px, 6vw, 72px) clamp(16px, 4vw, 40px); }
+    .section-head { text-align: center; max-width: 720px; margin: 0 auto clamp(32px, 4vw, 54px); }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: 999px; font-size: 12px; line-height: 1; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    .eyebrow-dark { background: rgba(17,24,39,.04); border: 1px solid rgba(17,24,39,.16); color: #111827; }
+    .dot-pink { width: 7px; height: 7px; border-radius: 50%; background: #ec2f91; box-shadow: 0 0 8px #ec2f91; animation: dotPulse 1.6s ease-in-out infinite; }
+    @keyframes dotPulse { 50% { opacity: .45; transform: scale(.82); } }
+    .section-title { font-family: "Anton", "Archivo Black", "Figtree", Inter, Arial, sans-serif; font-weight: 400; font-size: clamp(42px, 6vw, 78px); line-height: .95; letter-spacing: 0; text-transform: uppercase; margin: 16px 0 14px; color: #111827; }
+    .section-title .accent { background: linear-gradient(90deg, #ec2f91 0%, #ff4c55 48%, #ff8a00 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .section-sub { color: #4b5563; font-size: clamp(16px, 1.4vw, 20px); line-height: 1.5; max-width: 760px; margin: 0 auto; font-weight: 600; }
+    .section-sub b { color: #111827; }
+    .howto { position: relative; background: #fff; overflow: hidden; }
+    .howto::after { content: ""; position: absolute; inset: 0; opacity: .14; background-image: radial-gradient(1px 1px at 10% 20%, rgba(236,47,145,.8), transparent), radial-gradient(1.5px 1.5px at 80% 30%, rgba(236,47,145,.6), transparent), radial-gradient(1px 1px at 30% 80%, rgba(236,47,145,.8), transparent), radial-gradient(1px 1px at 70% 65%, rgba(236,47,145,.6), transparent); background-size: 800px 800px; mix-blend-mode: multiply; pointer-events: none; }
+    .howto .section-inner { position: relative; z-index: 1; padding-top: clamp(36px, 5vw, 64px); padding-bottom: clamp(38px, 6vw, 72px); }
+    .steps-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(28px, 4vw, 56px); position: relative; z-index: 1; }
+    .step { position: relative; background: linear-gradient(#fdfcfd, #fdfcfd) padding-box, linear-gradient(135deg, #ec2f91, #ff8a00) border-box; border: 2px solid transparent; border-radius: 22px; padding: 46px 16px 34px; text-align: center; box-shadow: 0 10px 30px rgba(15,23,42,.06); }
+    .step::before { content: ""; position: absolute; inset: -2px; border-radius: 24px; background: linear-gradient(135deg, #ec2f91, #ff8a00); filter: blur(16px); opacity: .32; z-index: -1; }
+    .step[data-step="1"]::after, .step[data-step="2"]::after { content: ">>"; position: absolute; top: 50%; right: calc(-1 * clamp(14px, 2vw, 28px)); transform: translate(50%, -50%); color: #ec2f91; font-size: 26px; font-weight: 900; letter-spacing: -2px; z-index: 2; }
+    .step-num { position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%); width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; font-family: "Archivo Black", sans-serif; font-size: 22px; color: #fff; background: linear-gradient(135deg, #ec2f91, #ff8a00); box-shadow: 0 4px 10px rgba(236,47,145,.42); z-index: 5; }
+    .step-icon { color: #ec2f91; margin-bottom: 8px; }
+    .step-icon svg { width: 28px; height: 28px; }
+    .step-visual { width: 100%; aspect-ratio: 320 / 200; max-width: 280px; margin: 12px auto 16px; border-radius: 18px; border: 8px solid #555; box-shadow: inset 0 0 0 1px #000; overflow: hidden; position: relative; background: #07010f; }
+    .crack-art { width: 100%; height: 100%; display: block; }
+    .step h3 { font-size: 18px; font-weight: 900; color: #111827; margin-bottom: 6px; letter-spacing: .5px; text-transform: uppercase; }
+    .step p { color: #4b5563; font-size: 16px; line-height: 1.55; font-weight: 600; }
+    .q-pulse { transform-origin: 160px 100px; animation: qpulse 1.6s ease-in-out infinite; }
+    @keyframes qpulse { 50% { transform: scale(1.08); } }
+    .finger-anim { transform-origin: 156px 101px; animation: fingerTap 6s ease-in-out infinite; }
+    @keyframes fingerTap { 0%, 100% { transform: translate(104px, 99px); opacity: 0; } 5% { opacity: 1; } 12% { transform: translate(-36px, -21px); } 15% { transform: translate(-36px, -21px) scale(.9); } 18% { transform: translate(-36px, -21px) scale(1); } 30% { transform: translate(44px, 29px); } 33% { transform: translate(44px, 29px) scale(.9); } 36% { transform: translate(44px, 29px) scale(1); } 48% { transform: translate(-6px, 49px); } 51% { transform: translate(-6px, 49px) scale(.9); } 54% { transform: translate(-6px, 49px) scale(1); } 66% { transform: translate(4px, -1px); } 69% { transform: translate(4px, -1px) scale(.9); } 72%, 85% { transform: translate(4px, -1px) scale(1); opacity: 1; } 93% { transform: translate(104px, 99px); opacity: 0; } }
+    .tap-ring { opacity: 0; transform-origin: 160px 100px; animation: tapRing 6s ease-out infinite; }
+    @keyframes tapRing { 0%, 66%, 100% { opacity: 0; transform: scale(.2); } 69% { opacity: 1; transform: scale(.5); } 85% { opacity: 0; transform: scale(2.5); } }
+    .dot-1 { opacity: 0; animation: dotShow1 6s infinite; }
+    .dot-2 { opacity: 0; animation: dotShow2 6s infinite; }
+    .dot-3 { opacity: 0; animation: dotShow3 6s infinite; }
+    .dot-4 { opacity: 0; animation: dotShow4 6s infinite; }
+    @keyframes dotShow1 { 0%, 14%, 100% { opacity: 0; transform: scale(.5); transform-origin: 120px 80px; } 15%, 90% { opacity: 1; transform: scale(1); } }
+    @keyframes dotShow2 { 0%, 32%, 100% { opacity: 0; transform: scale(.5); transform-origin: 200px 130px; } 33%, 90% { opacity: 1; transform: scale(1); } }
+    @keyframes dotShow3 { 0%, 50%, 100% { opacity: 0; transform: scale(.5); transform-origin: 150px 150px; } 51%, 90% { opacity: 1; transform: scale(1); } }
+    @keyframes dotShow4 { 0%, 68%, 100% { opacity: 0; transform: scale(.5); transform-origin: 160px 100px; } 69%, 90% { opacity: 1; transform: scale(1); } }
+    .burst-pulse { transform-origin: 160px 100px; animation: burstPulse 1.6s ease-in-out infinite; }
+    @keyframes burstPulse { 50% { transform: scale(1.2); opacity: .85; } }
+    .rays { transform-origin: 160px 100px; animation: raysSpin 8s linear infinite; }
+    @keyframes raysSpin { to { transform: rotate(360deg); } }
+    .win-text { animation: winBounce 1.4s ease-in-out infinite; transform-origin: 160px 100px; }
+    @keyframes winBounce { 50% { transform: scale(1.12); } }
+    .html-confetti { position: absolute; inset: 0; pointer-events: none; overflow: hidden; border-radius: 18px; }
+    .hc { position: absolute; bottom: 5%; width: 6px; height: 10px; opacity: 1; }
+    .hc-l1, .hc-l4, .hc-l7, .hc-r3, .hc-r5 { background: #10ff9f; }
+    .hc-l2, .hc-l6, .hc-r2, .hc-r6 { background: #ffd24a; }
+    .hc-l3, .hc-l5, .hc-r1, .hc-r4, .hc-r7 { background: #ec2f91; }
+    .hc-l1, .hc-l2, .hc-l3, .hc-l4, .hc-l5, .hc-l6, .hc-l7 { left: -15px; animation: confettiLeft 2.5s linear infinite; }
+    .hc-r1, .hc-r2, .hc-r3, .hc-r4, .hc-r5, .hc-r6, .hc-r7 { right: -15px; animation: confettiRight 2.5s linear infinite; }
+    .hc-l2, .hc-r2 { animation-delay: .05s; }
+    .hc-l3, .hc-r3 { animation-delay: .12s; }
+    .hc-l4, .hc-r4 { animation-delay: .2s; }
+    .hc-l5, .hc-r5 { animation-delay: .28s; }
+    .hc-l6, .hc-r6 { animation-delay: .36s; }
+    .hc-l7, .hc-r7 { animation-delay: .44s; }
+    @keyframes confettiLeft { 20% { transform: translate(35px, -80px) rotate(80deg); } 55% { transform: translate(88px, -112px) rotate(180deg); } 100% { transform: translate(155px, 120px) rotate(360deg); } }
+    @keyframes confettiRight { 20% { transform: translate(-35px, -80px) rotate(-80deg); } 55% { transform: translate(-88px, -112px) rotate(-180deg); } 100% { transform: translate(-155px, 120px) rotate(-360deg); } }
+    .howto-cta { text-align: center; margin-top: clamp(30px, 4vw, 46px); }
+    .howto-btn { min-height: 54px; padding: 0 34px; font-size: 14px; }
 
     @media (max-width: 900px) {
       .promo-cta, .nav { display: none; }
@@ -126,6 +185,8 @@
       .winner-inner { grid-template-columns: 1fr; gap: 18px; }
       .winner-kicker { font-size: 22px; text-align: center; }
       .winner-card { flex-basis: calc((100% - 16px) / 2); }
+      .steps-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; gap: 34px; }
+      .step[data-step="1"]::after, .step[data-step="2"]::after { content: ">>"; top: auto; right: 50%; bottom: -30px; transform: translate(50%, 0) rotate(90deg); }
     }
     @media (max-width: 520px) {
       .promo-inner { padding: 6px 14px; min-height: 32px; }
@@ -149,6 +210,11 @@
       .winner-prize-img { width: 78px; height: 58px; }
       .winner-name { font-size: 16px; }
       .winner-prize { font-size: 14px; }
+      .section-title { font-size: 40px; }
+      .section-sub { font-size: 15px; }
+      .step { padding: 42px 14px 30px; }
+      .step p { font-size: 15px; }
+      .howto-btn { width: 100%; padding: 0 18px; }
     }
   </style>
 </head>
@@ -179,154 +245,24 @@
 
     <section class="hero-slider" aria-label="PrizeRunners hero slider">
       <div class="hero-track" data-track>
-        <article class="hero-slide slide-golf">
-          <div class="hero-inner"><div class="hero-copy">
-            <div class="prize-pill"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 20h14v-2H5v2Zm1.2-4h11.6l1.6-9.6-4.2 2.8L12 4 8.8 9.2 4.6 6.4 6.2 16Z"/></svg> Top Prize</div>
-            <h1 class="hero-title">Win This <span class="gradient-text">Volkswagen</span><span class="gradient-text">Golf R</span></h1>
-            <p class="hero-subtitle">Play Find the Impact and win instantly.</p>
-            <div class="hero-actions"><a href="../welcome-bonus/" class="primary-btn">Claim 5 Free Plays <span aria-hidden="true">&gt;</span></a></div>
-            <div class="hero-trust">
-              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-8 13h7l-1 7 8-13h-7z"/></svg>100% Skill</span>
-              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>No Random Draws</span>
-              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-8 0v2"/><circle cx="12" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M2 21v-2a4 4 0 0 1 3-3.87"/></svg>Multiple Winners</span>
-            </div>
-          </div></div>
-        </article>
-
-        <article class="hero-slide slide-prizes">
-          <div class="hero-inner"><div class="hero-copy">
-            <div class="prize-pill"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 2.8 6 6.2.8-4.5 4.4 1.1 6.3L12 16.4 6.4 19.5l1.1-6.3L3 8.8 9.2 8 12 2Z"/></svg> Instant Prizes</div>
-            <h2 class="hero-title">Big Prizes. <span class="gradient-text">Instant Wins.</span></h2>
-            <p class="hero-subtitle">Win Rolex, iPhone, cash prizes and more with every game.</p>
-            <div class="hero-actions"><a href="../welcome-bonus/" class="primary-btn">Claim 5 Free Plays <span aria-hidden="true">&gt;</span></a></div>
-            <div class="hero-trust">
-              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M7 15h3"/></svg>No card required</span>
-              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>No judges</span>
-              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-8 13h7l-1 7 8-13h-7z"/></svg>Instant results</span>
-            </div>
-          </div></div>
-        </article>
-
-        <article class="hero-slide slide-bonus">
-          <div class="hero-inner"><div class="hero-copy">
-            <div class="prize-pill"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 10-13h-7l1-7Z"/></svg> New Player Offer</div>
-            <h2 class="hero-title">Double Your <span class="gradient-text">First Top-Up</span></h2>
-            <p class="hero-subtitle">Get a 100% bonus credit on your first top-up.</p>
-            <div class="hero-actions"><a href="../welcome-bonus/" class="primary-btn">Claim My Bonus <span aria-hidden="true">&gt;</span></a></div>
-            <div class="hero-trust">
-              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/></svg>100% match bonus</span>
-              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>New players only</span>
-            </div>
-          </div></div>
-        </article>
+        <article class="hero-slide slide-golf"><div class="hero-inner"><div class="hero-copy"><div class="prize-pill"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 20h14v-2H5v2Zm1.2-4h11.6l1.6-9.6-4.2 2.8L12 4 8.8 9.2 4.6 6.4 6.2 16Z"/></svg> Top Prize</div><h1 class="hero-title">Win This <span class="gradient-text">Volkswagen</span><span class="gradient-text">Golf R</span></h1><p class="hero-subtitle">Play Find the Impact and win instantly.</p><div class="hero-actions"><a href="../welcome-bonus/" class="primary-btn">Claim 5 Free Plays <span aria-hidden="true">&gt;</span></a></div><div class="hero-trust"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-8 13h7l-1 7 8-13h-7z"/></svg>100% Skill</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>No Random Draws</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-8 0v2"/><circle cx="12" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M2 21v-2a4 4 0 0 1 3-3.87"/></svg>Multiple Winners</span></div></div></div></article>
+        <article class="hero-slide slide-prizes"><div class="hero-inner"><div class="hero-copy"><div class="prize-pill"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 2.8 6 6.2.8-4.5 4.4 1.1 6.3L12 16.4 6.4 19.5l1.1-6.3L3 8.8 9.2 8 12 2Z"/></svg> Instant Prizes</div><h2 class="hero-title">Big Prizes. <span class="gradient-text">Instant Wins.</span></h2><p class="hero-subtitle">Win Rolex, iPhone, cash prizes and more with every game.</p><div class="hero-actions"><a href="../welcome-bonus/" class="primary-btn">Claim 5 Free Plays <span aria-hidden="true">&gt;</span></a></div><div class="hero-trust"><span>No card required</span><span>No judges</span><span>Instant results</span></div></div></div></article>
+        <article class="hero-slide slide-bonus"><div class="hero-inner"><div class="hero-copy"><div class="prize-pill"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 10-13h-7l1-7Z"/></svg> New Player Offer</div><h2 class="hero-title">Double Your <span class="gradient-text">First Top-Up</span></h2><p class="hero-subtitle">Get a 100% bonus credit on your first top-up.</p><div class="hero-actions"><a href="../welcome-bonus/" class="primary-btn">Claim My Bonus <span aria-hidden="true">&gt;</span></a></div><div class="hero-trust"><span>100% match bonus</span><span>New players only</span></div></div></div></article>
       </div>
-
       <button class="slider-arrow prev" type="button" aria-label="Previous slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
       <button class="slider-arrow next" type="button" aria-label="Next slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
-      <div class="slider-dots" aria-label="Hero slider navigation">
-        <button class="slider-dot active" type="button" aria-label="Slide 1"></button>
-        <button class="slider-dot" type="button" aria-label="Slide 2"></button>
-        <button class="slider-dot" type="button" aria-label="Slide 3"></button>
-      </div>
+      <div class="slider-dots" aria-label="Hero slider navigation"><button class="slider-dot active" type="button" aria-label="Slide 1"></button><button class="slider-dot" type="button" aria-label="Slide 2"></button><button class="slider-dot" type="button" aria-label="Slide 3"></button></div>
     </section>
 
-    <section class="benefits-section" aria-label="PrizeRunners benefits">
-      <div class="benefits-panel">
-        <div class="benefit-item">
-          <div class="benefit-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="18"/><path d="M12 14h24v20H12z"/><path d="M12 20h24"/><path d="M17 29h7"/><path d="M10 10l28 28"/></svg>
-          </div>
-          <div class="benefit-copy">
-            <h2 class="benefit-title">No Card Required</h2>
-            <p class="benefit-text">Claim your free plays first.</p>
-          </div>
-        </div>
-        <div class="benefit-item">
-          <div class="benefit-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M27 4 13 28h11l-3 16 15-26H25l2-14Z"/></svg>
-          </div>
-          <div class="benefit-copy">
-            <h2 class="benefit-title">Instant Wins</h2>
-            <p class="benefit-text">Results shown straight away.</p>
-          </div>
-        </div>
-        <div class="benefit-item">
-          <div class="benefit-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="15"/><circle cx="24" cy="24" r="7"/><path d="M24 9V4"/><path d="M39 24h5"/><path d="m34.5 13.5 5-5"/><path d="M24 24 42 6"/><path d="m38 6 4 .5.5 4"/></svg>
-          </div>
-          <div class="benefit-copy">
-            <h2 class="benefit-title">100% Skill</h2>
-            <p class="benefit-text">No draws.<br>No judges.</p>
-          </div>
-        </div>
-        <div class="benefit-item">
-          <div class="benefit-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M24 5 39 11v11c0 9.5-6.2 16.8-15 21-8.8-4.2-15-11.5-15-21V11l15-6Z"/><path d="M24 14v20"/><path d="M14 24h20"/><path d="M18 18h12v12H18z"/></svg>
-          </div>
-          <div class="benefit-copy">
-            <h2 class="benefit-title">UK Based</h2>
-            <p class="benefit-text">Real prizes.<br>Real winners.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="benefits-section" aria-label="PrizeRunners benefits"><div class="benefits-panel"><div class="benefit-item"><div class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="18"/><path d="M12 14h24v20H12z"/><path d="M12 20h24"/><path d="M17 29h7"/><path d="M10 10l28 28"/></svg></div><div class="benefit-copy"><h2 class="benefit-title">No Card Required</h2><p class="benefit-text">Claim your free plays first.</p></div></div><div class="benefit-item"><div class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M27 4 13 28h11l-3 16 15-26H25l2-14Z"/></svg></div><div class="benefit-copy"><h2 class="benefit-title">Instant Wins</h2><p class="benefit-text">Results shown straight away.</p></div></div><div class="benefit-item"><div class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="15"/><circle cx="24" cy="24" r="7"/><path d="M24 9V4"/><path d="M39 24h5"/><path d="m34.5 13.5 5-5"/><path d="M24 24 42 6"/><path d="m38 6 4 .5.5 4"/></svg></div><div class="benefit-copy"><h2 class="benefit-title">100% Skill</h2><p class="benefit-text">No draws.<br>No judges.</p></div></div><div class="benefit-item"><div class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M24 5 39 11v11c0 9.5-6.2 16.8-15 21-8.8-4.2-15-11.5-15-21V11l15-6Z"/><path d="M24 14v20"/><path d="M14 24h20"/><path d="M18 18h12v12H18z"/></svg></div><div class="benefit-copy"><h2 class="benefit-title">UK Based</h2><p class="benefit-text">Real prizes.<br>Real winners.</p></div></div></div></section>
 
-    <section class="winner-strip" aria-label="Recent PrizeRunners winners">
-      <div class="winner-inner">
-        <div class="winner-kicker">Recent Winners</div>
-        <div class="winner-carousel">
-          <div class="winner-track" data-winner-track>
-            <article class="winner-card">
-              <span class="winner-badge">Revealed today</span>
-              <img class="winner-prize-img" src="../Winners/Charlotte iPhone 17 Pro Max.webp" alt="Charlotte winner" />
-              <div>
-                <h2 class="winner-name">Charlotte R.</h2>
-                <p class="winner-prize">iPhone 17 Pro Max</p>
-                <div class="winner-meta">Won with 5 free plays</div>
-              </div>
-            </article>
-            <article class="winner-card">
-              <span class="winner-badge">Revealed today</span>
-              <img class="winner-prize-img" src="../Winners/Joe Cash Prize.webp" alt="Joe winner" />
-              <div>
-                <h2 class="winner-name">Joe M.</h2>
-                <p class="winner-prize">&pound;2,000 Cash</p>
-                <div class="winner-meta">Instant win</div>
-              </div>
-            </article>
-            <article class="winner-card">
-              <span class="winner-badge">Yesterday</span>
-              <img class="winner-prize-img" src="../Winners/Jamie Rolex.webp" alt="Jamie winner" />
-              <div>
-                <h2 class="winner-name">Jamie P.</h2>
-                <p class="winner-prize">Rolex Daytona</p>
-                <div class="winner-meta">Skill entry</div>
-              </div>
-            </article>
-            <article class="winner-card">
-              <span class="winner-badge">This week</span>
-              <img class="winner-prize-img" src="../Winners/Rob Cash Prize.webp" alt="Rob winner" />
-              <div>
-                <h2 class="winner-name">Rob S.</h2>
-                <p class="winner-prize">&pound;5,000 Cash</p>
-                <div class="winner-meta">Instant result</div>
-              </div>
-            </article>
-            <article class="winner-card">
-              <span class="winner-badge">This week</span>
-              <img class="winner-prize-img" src="../Winners/Alfie Cash Prize.webp" alt="Alfie winner" />
-              <div>
-                <h2 class="winner-name">Alfie T.</h2>
-                <p class="winner-prize">&pound;1,000 Cash</p>
-                <div class="winner-meta">Free play winner</div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="winner-strip" id="winners" aria-label="Recent PrizeRunners winners"><div class="winner-inner"><div class="winner-kicker">Recent Winners</div><div class="winner-carousel"><div class="winner-track" data-winner-track><article class="winner-card"><span class="winner-badge">Revealed today</span><img class="winner-prize-img" src="../Winners/Charlotte iPhone 17 Pro Max.webp" alt="Charlotte winner" /><div><h2 class="winner-name">Charlotte R.</h2><p class="winner-prize">iPhone 17 Pro Max</p><div class="winner-meta">Won with 5 free plays</div></div></article><article class="winner-card"><span class="winner-badge">Revealed today</span><img class="winner-prize-img" src="../Winners/Joe Cash Prize.webp" alt="Joe winner" /><div><h2 class="winner-name">Joe M.</h2><p class="winner-prize">&pound;2,000 Cash</p><div class="winner-meta">Instant win</div></div></article><article class="winner-card"><span class="winner-badge">Yesterday</span><img class="winner-prize-img" src="../Winners/Jamie Rolex.webp" alt="Jamie winner" /><div><h2 class="winner-name">Jamie P.</h2><p class="winner-prize">Rolex Daytona</p><div class="winner-meta">Skill entry</div></div></article><article class="winner-card"><span class="winner-badge">This week</span><img class="winner-prize-img" src="../Winners/Rob Cash Prize.webp" alt="Rob winner" /><div><h2 class="winner-name">Rob S.</h2><p class="winner-prize">&pound;5,000 Cash</p><div class="winner-meta">Instant result</div></div></article><article class="winner-card"><span class="winner-badge">This week</span><img class="winner-prize-img" src="../Winners/Alfie Cash Prize.webp" alt="Alfie winner" /><div><h2 class="winner-name">Alfie T.</h2><p class="winner-prize">&pound;1,000 Cash</p><div class="winner-meta">Free play winner</div></div></article></div></div></div></section>
 
-    <div class="section-placeholder" aria-hidden="true"></div>
+    <section class="howto" id="how-it-works" aria-label="How to play and win"><div class="section-inner"><div class="section-head"><span class="eyebrow eyebrow-dark"><span class="dot-pink"></span> 100% Skill-Based</span><h2 class="section-title">How to <span class="accent">Play &amp; Win</span></h2><p class="section-sub"><b>&quot;Find The Impact&quot;</b> Mark where the screen cracked and win instantly!</p></div><div class="steps-grid">
+      <article class="step" data-step="1"><div class="step-num">1</div><div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Look for Clues</h3><div class="step-visual" aria-hidden="true"><svg viewBox="0 0 320 200" class="crack-art"><defs><radialGradient id="scrBg1" cx="50%" cy="50%" r="60%"><stop offset="0%" stop-color="#2a1240"/><stop offset="100%" stop-color="#07010f"/></radialGradient></defs><rect width="320" height="200" fill="url(#scrBg1)"/><g stroke="#fff" stroke-width="1.1" fill="none" opacity=".85"><path d="M160 100 L40 30 M160 100 L280 28 M160 100 L30 120 M160 100 L290 130 M160 100 L120 180 M160 100 L220 180 M160 100 L20 180"/><path d="M160 100 L160 0 M160 100 L80 10 M160 100 L240 10 M160 100 L310 80 M160 100 L10 80 M160 100 L280 180 M160 100 L60 160"/><path d="M110 50 L120 30 M110 50 L95 60"/><path d="M220 40 L200 55 M220 40 L235 55"/><path d="M100 130 L115 150 M100 130 L70 145 M100 130 L110 110"/><path d="M220 130 L200 150 M220 130 L250 145"/><path d="M130 50 L145 30 M170 40 L190 20 M190 70 L220 60"/></g><g class="q-pulse"><path d="M160,65 C185,65 205,80 195,105 C185,130 165,140 140,130 C120,120 115,95 130,75 C140,60 150,65 160,65 Z" fill="#2dff9f" stroke="#0eaa66" stroke-width="2"/><text x="160" y="114" text-anchor="middle" font-family="Archivo Black,sans-serif" font-size="40" fill="#0a3a22">?</text></g></svg></div><p>Scan the cracked screen for visual clues showing where the impact started.</p></article>
+      <article class="step" data-step="2"><div class="step-num">2</div><div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></div><h3>Mark Impact Point</h3><div class="step-visual" aria-hidden="true"><svg viewBox="0 0 320 200" class="crack-art"><defs><radialGradient id="scrBg3" cx="50%" cy="50%" r="60%"><stop offset="0%" stop-color="#2a1240"/><stop offset="100%" stop-color="#07010f"/></radialGradient></defs><rect width="320" height="200" fill="url(#scrBg3)"/><g stroke="#fff" stroke-width="1.1" fill="none" opacity=".55"><path d="M160 100 L40 30 M160 100 L280 28 M160 100 L30 120 M160 100 L290 130 M160 100 L120 180 M160 100 L220 180 M160 100 L20 180"/><path d="M160 100 L160 0 M160 100 L80 10 M160 100 L240 10 M160 100 L310 80 M160 100 L10 80 M160 100 L280 180 M160 100 L60 160"/><path d="M110 50 L120 30 M110 50 L95 60"/><path d="M220 40 L200 55 M220 40 L235 55"/><path d="M100 130 L115 150 M100 130 L70 145 M100 130 L110 110"/><path d="M220 130 L200 150 M220 130 L250 145"/><path d="M130 50 L145 30 M170 40 L190 20 M190 70 L220 60"/></g><circle cx="120" cy="80" r="5" fill="#ff3366" class="dot-1"/><circle cx="200" cy="130" r="5" fill="#ff3366" class="dot-2"/><circle cx="150" cy="150" r="5" fill="#ff3366" class="dot-3"/><circle cx="160" cy="100" r="6" fill="#ec2f91" class="dot-4"/><circle cx="160" cy="100" r="24" stroke="#ec2f91" stroke-width="2" fill="none" class="tap-ring"/><g class="finger-anim"><path d="M152 120 L152 105 A 4 4 0 0 1 160 105 L160 115 A 4 4 0 0 1 168 115 L168 120 A 4 4 0 0 1 176 120 L176 125 A 4 4 0 0 1 184 125 L184 135 A 8 8 0 0 1 176 143 L152 143 A 12 12 0 0 1 140 131 L140 120 Z" fill="#ec2f91" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></g></svg></div><p>Tap on the exact spot where you think the impact happened.</p></article>
+      <article class="step" data-step="3"><div class="step-num">3</div><div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div><h3>WIN Instantly!</h3><div class="step-visual" aria-hidden="true"><svg viewBox="0 0 320 200" class="crack-art"><defs><radialGradient id="scrBg4" cx="50%" cy="50%" r="60%"><stop offset="0%" stop-color="#2a1240"/><stop offset="100%" stop-color="#07010f"/></radialGradient><radialGradient id="burst" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#fff"/><stop offset="40%" stop-color="#ffd24a"/><stop offset="100%" stop-color="rgba(255,210,74,0)"/></radialGradient></defs><rect width="320" height="200" fill="url(#scrBg4)"/><g stroke="#fff" stroke-width="1.2" fill="none" opacity=".45"><path d="M160 100 L40 30 M160 100 L280 28 M160 100 L30 120 M160 100 L290 130 M160 100 L120 180 M160 100 L220 180 M160 100 L20 180"/><path d="M160 100 L160 0 M160 100 L80 10 M160 100 L240 10 M160 100 L310 80 M160 100 L10 80 M160 100 L280 180 M160 100 L60 160"/><path d="M110 50 L120 30 M110 50 L95 60"/><path d="M220 40 L200 55 M220 40 L235 55"/><path d="M100 130 L115 150 M100 130 L70 145 M100 130 L110 110"/><path d="M220 130 L200 150 M220 130 L250 145"/><path d="M130 50 L145 30 M170 40 L190 20 M190 70 L220 60"/></g><circle cx="160" cy="100" r="50" fill="url(#burst)" class="burst-pulse"/><g class="rays" stroke="#ffd24a" stroke-width="2" opacity=".9"><line x1="160" y1="30" x2="160" y2="50"/><line x1="160" y1="170" x2="160" y2="150"/><line x1="90" y1="100" x2="110" y2="100"/><line x1="230" y1="100" x2="210" y2="100"/><line x1="110" y1="50" x2="125" y2="65"/><line x1="210" y1="50" x2="195" y2="65"/><line x1="110" y1="150" x2="125" y2="135"/><line x1="210" y1="150" x2="195" y2="135"/></g><text x="160" y="108" text-anchor="middle" font-family="Archivo Black,sans-serif" font-size="30" fill="#fff" class="win-text">WIN!</text></svg><div class="html-confetti"><div class="hc hc-l1"></div><div class="hc hc-l2"></div><div class="hc hc-l3"></div><div class="hc hc-l4"></div><div class="hc hc-l5"></div><div class="hc hc-l6"></div><div class="hc hc-l7"></div><div class="hc hc-r1"></div><div class="hc hc-r2"></div><div class="hc hc-r3"></div><div class="hc hc-r4"></div><div class="hc hc-r5"></div><div class="hc hc-r6"></div><div class="hc hc-r7"></div></div></div><p>If you're inside the winning zone, you win instantly. Prizes paid out fast.</p></article>
+    </div><div class="howto-cta"><a class="primary-btn howto-btn" href="../welcome-bonus/">Claim My 5 Free Plays <span aria-hidden="true">&gt;</span></a></div></div></section>
   </div>
 
   <script>
@@ -340,7 +276,6 @@
           link.href = url.toString();
         });
       }
-
       const track = document.querySelector('[data-track]');
       const slides = document.querySelectorAll('.hero-slide');
       const dots = document.querySelectorAll('.slider-dot');
@@ -350,9 +285,8 @@
       let currentSlide = 0;
       let currentWinner = 0;
       let timer;
-      let winnerTimer;
-
       function showSlide(index, manual = false) {
+        if (!track || !slides.length) return;
         currentSlide = (index + slides.length) % slides.length;
         track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
         dots.forEach((dot, dotIndex) => dot.classList.toggle('active', dotIndex === currentSlide));
@@ -362,11 +296,12 @@
         clearInterval(timer);
         timer = setInterval(() => showSlide(currentSlide + 1), 5200);
       }
-      prev.addEventListener('click', () => showSlide(currentSlide - 1, true));
-      next.addEventListener('click', () => showSlide(currentSlide + 1, true));
-      dots.forEach((dot, index) => dot.addEventListener('click', () => showSlide(index, true)));
-      restart();
-
+      if (prev && next) {
+        prev.addEventListener('click', () => showSlide(currentSlide - 1, true));
+        next.addEventListener('click', () => showSlide(currentSlide + 1, true));
+        dots.forEach((dot, index) => dot.addEventListener('click', () => showSlide(index, true)));
+        restart();
+      }
       function showWinner(index) {
         if (!winnerTrack) return;
         const cards = winnerTrack.querySelectorAll('.winner-card');
@@ -378,7 +313,7 @@
         winnerTrack.style.transform = 'translateX(-' + (currentWinner * step) + 'px)';
       }
       if (winnerTrack) {
-        winnerTimer = setInterval(() => showWinner(currentWinner + 1), 3600);
+        setInterval(() => showWinner(currentWinner + 1), 3600);
         window.addEventListener('resize', () => showWinner(currentWinner));
       }
     });
