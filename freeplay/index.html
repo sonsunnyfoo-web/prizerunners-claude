@@ -91,21 +91,18 @@
     .benefit-text { color: #374151; font-size: 12px; line-height: 1.35; font-weight: 700; }
 
     .winner-strip { background: #f4f5f8; padding: 36px 20px 38px; overflow: hidden; }
-    .winner-inner { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 210px minmax(0, 1fr) 220px; align-items: center; gap: 22px; }
-    .winner-kicker { color: #111827; font-family: "Archivo Black", "Figtree", Inter, Arial, sans-serif; font-size: 30px; line-height: .92; text-transform: uppercase; transform: rotate(-5deg); }
-    .winner-kicker span { display: block; color: #ec2f91; font-size: 24px; }
-    .winner-carousel { min-width: 0; overflow: hidden; }
+    .winner-inner { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 180px minmax(0, 1fr); align-items: center; gap: 24px; }
+    .winner-kicker { color: #111827; font-family: "Archivo Black", "Figtree", Inter, Arial, sans-serif; font-size: 24px; line-height: 1; text-transform: uppercase; }
+    .winner-carousel { min-width: 0; overflow: hidden; position: relative; }
+    .winner-carousel::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; width: 120px; pointer-events: none; background: linear-gradient(90deg, rgba(244,245,248,0), #f4f5f8 86%); }
     .winner-track { display: flex; gap: 16px; align-items: stretch; transform: translateX(0); transition: transform .55s cubic-bezier(.22,.7,.18,1); will-change: transform; }
-    .winner-card { flex: 0 0 calc((100% - 16px) / 2); min-width: 0; position: relative; display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 14px; align-items: center; min-height: 104px; padding: 16px 18px 14px; background: #fff; border-radius: 8px; border-bottom: 4px solid #2742d8; box-shadow: 0 8px 20px rgba(15,23,42,.08); overflow: hidden; }
+    .winner-card { flex: 0 0 calc((100% - 32px) / 3); min-width: 0; position: relative; display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 14px; align-items: center; min-height: 104px; padding: 16px 18px 14px; background: #fff; border-radius: 8px; border-bottom: 4px solid #2742d8; box-shadow: 0 8px 20px rgba(15,23,42,.08); overflow: hidden; }
     .winner-card::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 4px; background: #ec2f91; opacity: .9; }
     .winner-badge { position: absolute; top: 0; right: 0; padding: 5px 10px; border-radius: 0 8px 0 8px; background: #ec2f91; color: #fff; font-size: 11px; line-height: 1; font-weight: 900; }
     .winner-prize-img { width: 96px; height: 68px; border-radius: 6px; object-fit: cover; background: #eef2ff; }
     .winner-name { color: #27369c; font-size: 18px; line-height: 1.1; font-weight: 900; margin-bottom: 3px; }
     .winner-prize { color: #374151; font-size: 15px; line-height: 1.2; font-weight: 800; margin-bottom: 10px; }
     .winner-meta { display: inline-flex; align-items: center; gap: 4px; width: fit-content; padding: 6px 10px; background: #d5f3d4; color: #166534; border: 1px solid #9fe09c; border-radius: 4px; font-size: 11px; font-weight: 900; }
-    .winner-stat { color: #64748b; font-size: 18px; line-height: 1.15; font-weight: 800; font-style: italic; }
-    .winner-stat strong { display: inline-block; color: #3577ff; font-size: 22px; font-style: normal; margin-right: 4px; }
-    .winner-stat .dot { display: inline-block; width: 12px; height: 12px; margin-right: 8px; border-radius: 999px; background: #ff3b30; box-shadow: 0 0 0 5px rgba(255,59,48,.12); }
     .section-placeholder { min-height: 34px; background: #fff; }
 
     @media (max-width: 900px) {
@@ -127,9 +124,8 @@
       .benefit-item:nth-child(odd) { border-right: 1px solid rgba(15,23,42,.1); }
       .benefit-item:nth-child(-n+2) { border-bottom: 1px solid rgba(15,23,42,.1); }
       .winner-inner { grid-template-columns: 1fr; gap: 18px; }
-      .winner-kicker { font-size: 25px; text-align: center; transform: rotate(-3deg); }
-      .winner-kicker span { font-size: 20px; }
-      .winner-stat { text-align: center; }
+      .winner-kicker { font-size: 22px; text-align: center; }
+      .winner-card { flex-basis: calc((100% - 16px) / 2); }
     }
     @media (max-width: 520px) {
       .promo-inner { padding: 6px 14px; min-height: 32px; }
@@ -149,6 +145,7 @@
       .benefit-icon svg { width: 40px; height: 40px; }
       .winner-strip { padding: 28px 14px 30px; }
       .winner-card { flex-basis: 100%; grid-template-columns: 78px minmax(0, 1fr); padding: 15px 14px 13px; }
+      .winner-carousel::after { width: 72px; }
       .winner-prize-img { width: 78px; height: 58px; }
       .winner-name { font-size: 16px; }
       .winner-prize { font-size: 14px; }
@@ -276,7 +273,7 @@
 
     <section class="winner-strip" aria-label="Recent PrizeRunners winners">
       <div class="winner-inner">
-        <div class="winner-kicker"><span>Another winner.</span>Just now.</div>
+        <div class="winner-kicker">Recent Winners</div>
         <div class="winner-carousel">
           <div class="winner-track" data-winner-track>
             <article class="winner-card">
@@ -315,9 +312,17 @@
                 <div class="winner-meta">Instant result</div>
               </div>
             </article>
+            <article class="winner-card">
+              <span class="winner-badge">This week</span>
+              <img class="winner-prize-img" src="../Winners/Alfie Cash Prize.webp" alt="Alfie winner" />
+              <div>
+                <h2 class="winner-name">Alfie T.</h2>
+                <p class="winner-prize">&pound;1,000 Cash</p>
+                <div class="winner-meta">Free play winner</div>
+              </div>
+            </article>
           </div>
         </div>
-        <div class="winner-stat"><span class="dot"></span><strong>&pound;52k</strong> won<br>in the last 24 hours</div>
       </div>
     </section>
 
@@ -366,7 +371,7 @@
         if (!winnerTrack) return;
         const cards = winnerTrack.querySelectorAll('.winner-card');
         if (!cards.length) return;
-        const visibleCards = window.matchMedia('(max-width: 520px)').matches ? 1 : 2;
+        const visibleCards = window.matchMedia('(max-width: 520px)').matches ? 1 : (window.matchMedia('(max-width: 900px)').matches ? 2 : 3);
         const maxIndex = Math.max(cards.length - visibleCards, 0);
         currentWinner = index > maxIndex ? 0 : index;
         const step = cards[0].getBoundingClientRect().width + 16;
