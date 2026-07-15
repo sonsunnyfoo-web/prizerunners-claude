@@ -11,6 +11,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Figtree:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
 
+  <script>
+    document.documentElement.classList.toggle('is-live', /^https?:$/.test(window.location.protocol));
+  </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18093478400"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -141,6 +144,9 @@
     .slide-prizes .hero-prize-total strong { color: #ffd84d; font-size: 17px; line-height: 1; font-weight: 900; letter-spacing: .02em; }
     .slide-prizes .hero-prize-total em { color: #fff; font-size: 10px; line-height: 1; font-style: normal; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; opacity: .9; }
     .slide-bonus { background-image: url('hero-topup-bonus.png'); background-size: cover; background-position: center right; background-repeat: no-repeat; }
+    .is-live .slide-golf { background-image: url('/freeplay/hero-golf-r.png'); }
+    .is-live .slide-prizes { background-image: url('/freeplay/hero-multi-prize.png'); }
+    .is-live .slide-bonus { background-image: url('/freeplay/hero-topup-bonus.png'); }
 
     .slider-arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 5; width: 38px; height: 38px; border-radius: 999px; background: rgba(255,255,255,.92); box-shadow: 0 6px 20px rgba(15,23,42,.16); color: #111827; display: grid; place-items: center; transition: transform .18s ease, color .18s ease; }
     .slider-arrow:hover { color: #ec2f91; transform: translateY(-50%) scale(1.04); }
@@ -187,6 +193,7 @@
     .prize-showcase { display: grid; grid-template-columns: minmax(0, 1fr) minmax(520px, 1fr); gap: 18px; align-items: start; margin-bottom: 18px; }
     .prize-feature, .prize-card { position: relative; overflow: hidden; border-radius: 8px; background: #fff; border: 1px solid rgba(15,23,42,.08); box-shadow: 0 10px 26px rgba(15,23,42,.1); }
     .prize-feature { align-self: start; height: 390px; min-height: 0; display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(300px, .92fr); background-image: url('feature-prize-bg.png'); background-size: cover; background-position: center; color: #fff; }
+    .is-live .prize-feature { background-image: url('/freeplay/feature-prize-bg.png'); }
     .prize-feature::before { content: ""; position: absolute; inset: 0; z-index: 0; background: linear-gradient(103deg, rgba(7,13,29,.94) 0%, rgba(7,13,29,.86) 31%, rgba(7,13,29,.48) 48%, rgba(7,13,29,.08) 62%, rgba(7,13,29,0) 76%); pointer-events: none; }
     .prize-feature-copy { position: relative; z-index: 2; padding: 24px clamp(24px, 3vw, 34px) 24px; display: flex; flex-direction: column; justify-content: flex-start; }
     .prize-badge { width: fit-content; display: inline-flex; align-items: center; gap: 7px; padding: 7px 11px; border-radius: 999px; background: #ec2f91; color: #fff; font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: .08em; }
@@ -1608,6 +1615,9 @@
       .slide-golf { background-image: url('hero-golf-r-mobile.png'); background-position: center top; }
       .slide-prizes { background-image: url('hero-multi-prize-mobile.png'); background-position: center top; background-color: #030712; }
       .slide-bonus { background-image: url('hero-topup-bonus-mobile.png'); background-position: center top; }
+      .is-live .slide-golf { background-image: url('/freeplay/hero-golf-r-mobile.png'); }
+      .is-live .slide-prizes { background-image: url('/freeplay/hero-multi-prize-mobile.png'); }
+      .is-live .slide-bonus { background-image: url('/freeplay/hero-topup-bonus-mobile.png'); }
       .hero-slide::before,
       .slide-prizes::before { background: linear-gradient(180deg, rgba(3,7,18,0) 0%, rgba(3,7,18,0) 43%, rgba(3,7,18,.24) 57%, #030712 78%, #030712 100%); }
       .hero-inner { align-items: flex-end; justify-content: center; min-height: 640px; padding: 300px 20px 56px; }
@@ -1668,6 +1678,9 @@
       .slide-golf { background-image: url('hero-golf-r-mobile.png'); background-position: center top; }
       .slide-prizes { background-image: url('hero-multi-prize-mobile.png'); background-position: center top; }
       .slide-bonus { background-image: url('hero-topup-bonus-mobile.png'); background-position: center top; }
+      .is-live .slide-golf { background-image: url('/freeplay/hero-golf-r-mobile.png'); }
+      .is-live .slide-prizes { background-image: url('/freeplay/hero-multi-prize-mobile.png'); }
+      .is-live .slide-bonus { background-image: url('/freeplay/hero-topup-bonus-mobile.png'); }
       .hero-slide::before,
       .slide-prizes::before { background: linear-gradient(180deg, rgba(3,7,18,0) 0%, rgba(3,7,18,0) 40%, rgba(3,7,18,.18) 54%, #030712 76%, #030712 100%); }
       .hero-inner { padding: 230px 16px 16px; align-items: flex-end; }
@@ -1736,6 +1749,7 @@
       .prizes-section .section-inner { padding-left: 14px; padding-right: 14px; }
       .prize-tabs { margin-bottom: 18px; min-height: 66px; }
       .prize-feature { display: block; background-image: url('feature-prize-bg-mobile.png'); background-position: center top; }
+      .is-live .prize-feature { background-image: url('/freeplay/feature-prize-bg-mobile.png'); }
       .prize-feature::before { background: linear-gradient(180deg, rgba(3,7,18,0) 0%, rgba(3,7,18,.06) 28%, rgba(3,7,18,.42) 50%, rgba(3,7,18,.88) 68%, #030712 100%); }
       .prize-feature-copy { position: absolute; z-index: 5; left: 0; right: 0; bottom: 20px; width: 100%; padding: 0 22px 12px; justify-content: flex-end; }
       .prize-feature-media { position: relative; z-index: 3; display: flex; min-height: 190px; justify-content: center; padding: 18px 22px 0; }
