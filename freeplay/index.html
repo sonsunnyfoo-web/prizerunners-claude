@@ -2018,7 +2018,7 @@
       <div class="section-inner">
         <div class="section-head">
           <span class="eyebrow eyebrow-dark"><span class="dot-pink"></span> Featured Prizes</span>
-          <h2 class="section-title">Pick Your <span class="accent">Prize</span></h2>
+          <h2 class="section-title">Prizes You <span class="accent">Can Win</span></h2>
           <p class="section-sub">Skill-based instant wins across cars, tech, watches and cash prizes.</p>
         </div>
 
@@ -3248,16 +3248,16 @@
             <p>There's no limit. You can draw as many lines as needed to help judge the impact point, but keeping your screen clear is recommended.</p>
           </details>
           <details class="faq-item">
-            <summary>Can I change my submission after I've entered?</summary>
-            <p>No. Submissions are final once confirmed, so double-check your chosen coordinates before submitting.</p>
+            <summary>Can I change my impact point after I play?</summary>
+            <p>No. Once your point is confirmed, it is final, so double-check your chosen coordinates before playing.</p>
           </details>
           <details class="faq-item">
-            <summary>Can I enter multiple times?</summary>
-            <p>Yes, you can enter as many times as you like. Each entry requires a separate ticket and submission, and players should play responsibly.</p>
+            <summary>Can I play multiple points?</summary>
+            <p>Yes, you can mark more than one impact point. Each point costs 50p and gives you another chance to win. Please play responsibly.</p>
           </details>
           <details class="faq-item">
-            <summary>How can I buy a ticket to play?</summary>
-            <p>PrizeRunners supports credit and debit cards, Google Pay, Apple Pay, and the option to add the ticket cost to your phone bill.</p>
+            <summary>How much does each play cost?</summary>
+            <p>You play by marking your impact point in the game. Each point costs 50p, and every point gives you another chance to win.</p>
           </details>
         </div>
       </div>
@@ -3343,7 +3343,9 @@
         let timer;
         let isDraggingHero = false;
         let heroDragStartX = 0;
+        let heroDragStartY = 0;
         let heroDragDeltaX = 0;
+        let heroSwipeIntent = null;
         let isHeroResetting = false;
 
         function placeHeroDots() {
@@ -3384,17 +3386,27 @@
         if (next) next.addEventListener('click', () => showSlide(currentSlide + 1, true));
         dots.forEach((dot, index) => dot.addEventListener('click', () => showSlide(index, true)));
 
-        function startHeroDrag(clientX) {
+        function startHeroDrag(clientX, clientY = 0) {
           isDraggingHero = true;
           heroDragStartX = clientX;
+          heroDragStartY = clientY;
           heroDragDeltaX = 0;
+          heroSwipeIntent = null;
           clearInterval(timer);
           track.style.transition = 'none';
         }
 
-        function moveHeroDrag(clientX) {
+        function moveHeroDrag(clientX, clientY = heroDragStartY) {
           if (!isDraggingHero) return;
           heroDragDeltaX = clientX - heroDragStartX;
+          const heroDragDeltaY = clientY - heroDragStartY;
+          if (!heroSwipeIntent) {
+            const absX = Math.abs(heroDragDeltaX);
+            const absY = Math.abs(heroDragDeltaY);
+            if (absX < 8 && absY < 8) return;
+            heroSwipeIntent = absX > absY * 1.2 ? 'horizontal' : 'vertical';
+          }
+          if (heroSwipeIntent !== 'horizontal') return;
           const dragPercent = (heroDragDeltaX / heroSlider.offsetWidth) * 100;
           track.style.transform = 'translateX(calc(-' + (currentSlide * 100) + '% + ' + dragPercent + '%))';
         }
@@ -3402,6 +3414,10 @@
         function endHeroDrag() {
           if (!isDraggingHero) return;
           isDraggingHero = false;
+          if (heroSwipeIntent !== 'horizontal') {
+            restart();
+            return;
+          }
           const threshold = Math.min(120, heroSlider.offsetWidth * .16);
           if (heroDragDeltaX > threshold) {
             showSlide(currentSlide - 1, true);
@@ -3415,18 +3431,19 @@
         heroSlider.addEventListener('mousedown', (event) => {
           if (event.target.closest('a, button')) return;
           event.preventDefault();
-          startHeroDrag(event.clientX);
+          startHeroDrag(event.clientX, event.clientY);
         });
-        window.addEventListener('mousemove', (event) => moveHeroDrag(event.clientX));
+        window.addEventListener('mousemove', (event) => moveHeroDrag(event.clientX, event.clientY));
         window.addEventListener('mouseup', endHeroDrag);
         heroSlider.addEventListener('touchstart', (event) => {
           if (!event.touches.length) return;
-          startHeroDrag(event.touches[0].clientX);
+          startHeroDrag(event.touches[0].clientX, event.touches[0].clientY);
         }, { passive: true });
         heroSlider.addEventListener('touchmove', (event) => {
           if (!event.touches.length) return;
-          moveHeroDrag(event.touches[0].clientX);
-        }, { passive: true });
+          moveHeroDrag(event.touches[0].clientX, event.touches[0].clientY);
+          if (heroSwipeIntent === 'horizontal') event.preventDefault();
+        }, { passive: false });
         heroSlider.addEventListener('touchend', endHeroDrag);
         heroSlider.addEventListener('touchcancel', endHeroDrag);
 
