@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PrizeRunners | Instant Win</title>
-  <link rel="icon" type="image/png" href="../Logo/PR_Logo_Pink.png" />
-  <link rel="apple-touch-icon" href="../Logo/PR_Logo_Pink.png" />
+  <link rel="icon" type="image/png" href="Logo/PR_Logo_Pink.png" />
+  <link rel="apple-touch-icon" href="Logo/PR_Logo_Pink.png" />
   <meta name="description" content="Claim 5 free plays with PrizeRunners and play Find the Impact for real prizes. No card required." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -130,8 +130,8 @@
     .hero-trust strong { font-size: 13px; font-weight: 900; }
     .hero-trust svg { width: 15px; height: 15px; color: #111827; opacity: .78; }
 
-    .slide-golf { background-image: url('hero-golf-r.png'); background-size: cover; background-position: center right; background-repeat: no-repeat; }
-    .slide-prizes { background-image: url('hero-multi-prize.png'); background-size: cover; background-position: center right; background-repeat: no-repeat; }
+    .slide-golf { background-image: url('bonus/hero-bmw-m3-preview.png'); background-size: cover; background-position: center right; background-repeat: no-repeat; }
+    .slide-prizes { background-image: url('bonus/hero-multi-prize-updated-preview.png'); background-size: cover; background-position: center right; background-repeat: no-repeat; }
     .slide-prizes::before { background: none; }
     .slide-prizes .hero-title { color: #fff; text-shadow: 0 6px 24px rgba(0,0,0,.32); }
     .slide-prizes .hero-subtitle,
@@ -143,10 +143,10 @@
     .slide-prizes .hero-prize-copy { display: grid; gap: 1px; }
     .slide-prizes .hero-prize-total strong { color: #ffd84d; font-size: 17px; line-height: 1; font-weight: 900; letter-spacing: .02em; }
     .slide-prizes .hero-prize-total em { color: #fff; font-size: 10px; line-height: 1; font-style: normal; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; opacity: .9; }
-    .slide-bonus { background-image: url('hero-topup-bonus.png'); background-size: cover; background-position: center right; background-repeat: no-repeat; }
-    .is-live .slide-golf { background-image: url('/freeplay/hero-golf-r.png'); }
-    .is-live .slide-prizes { background-image: url('/freeplay/hero-multi-prize.png'); }
-    .is-live .slide-bonus { background-image: url('/freeplay/hero-topup-bonus.png'); }
+    .slide-bonus { background-image: url('bonus/hero-topup-bonus-bmw-preview.png'); background-size: cover; background-position: center right; background-repeat: no-repeat; }
+    .is-live .slide-golf { background-image: url('bonus/hero-bmw-m3-preview.png'); }
+    .is-live .slide-prizes { background-image: url('bonus/hero-multi-prize-updated-preview.png'); }
+    .is-live .slide-bonus { background-image: url('bonus/hero-topup-bonus-bmw-preview.png'); }
 
     .slider-arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 5; width: 38px; height: 38px; border-radius: 999px; background: rgba(255,255,255,.92); box-shadow: 0 6px 20px rgba(15,23,42,.16); color: #111827; display: grid; place-items: center; transition: transform .18s ease, color .18s ease; }
     .slider-arrow:hover { color: #ec2f91; transform: translateY(-50%) scale(1.04); }
@@ -192,12 +192,13 @@
     .prize-tab.active::after { content: ""; position: absolute; left: 18px; right: 18px; bottom: 0; height: 3px; border-radius: 999px 999px 0 0; background: #ec2f91; }
     .prize-showcase { display: grid; grid-template-columns: minmax(0, 1fr) minmax(520px, 1fr); gap: 18px; align-items: start; margin-bottom: 18px; }
     .prize-feature, .prize-card { position: relative; overflow: hidden; border-radius: 8px; background: #fff; border: 1px solid rgba(15,23,42,.08); box-shadow: 0 10px 26px rgba(15,23,42,.1); }
-    .prize-feature { align-self: start; height: 390px; min-height: 0; display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(300px, .92fr); background-image: url('feature-prize-bg.png'); background-size: cover; background-position: center; color: #fff; }
+    .prize-feature { align-self: start; height: 390px; min-height: 0; display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(300px, .92fr); background-image: url('bonus/feature-prize-bg.png'); background-size: cover; background-position: center; color: #fff; }
     .is-live .prize-feature { background-image: url('/freeplay/feature-prize-bg.png'); }
     .prize-feature::before { content: ""; position: absolute; inset: 0; z-index: 0; background: linear-gradient(103deg, rgba(7,13,29,.94) 0%, rgba(7,13,29,.86) 31%, rgba(7,13,29,.48) 48%, rgba(7,13,29,.08) 62%, rgba(7,13,29,0) 76%); pointer-events: none; }
     .prize-feature-copy { position: relative; z-index: 2; padding: 24px clamp(24px, 3vw, 34px) 24px; display: flex; flex-direction: column; justify-content: flex-start; }
     .prize-badge { width: fit-content; display: inline-flex; align-items: center; gap: 7px; padding: 7px 11px; border-radius: 999px; background: #ec2f91; color: #fff; font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: .08em; }
     .prize-feature-title { margin: 18px 0 10px; font-family: "Archivo Black", "Figtree", Inter, Arial, sans-serif; font-size: clamp(34px, 5vw, 58px); line-height: .92; text-transform: uppercase; letter-spacing: 0; }
+    .prize-feature-mobile-series { display: none; font: inherit; }
     .prize-feature-title span { display: block; color: #ffcf3f; white-space: nowrap; }
     .prize-desc { max-width: 410px; color: rgba(255,255,255,.78); font-size: 16px; line-height: 1.45; font-weight: 700; margin-bottom: 22px; }
     .prize-feature-meta { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 22px; }
@@ -1612,14 +1613,13 @@
       .header-cta { padding: 9px 14px; font-size: 11px; }
       .hero-slider, .hero-slide { min-height: 640px; background-color: #030712; }
       .hero-slide { background-size: 100% auto; background-position: center top; background-repeat: no-repeat; }
-      .slide-golf { background-image: url('hero-golf-r-mobile.png'); background-position: center top; }
-      .slide-prizes { background-image: url('hero-multi-prize-mobile.png'); background-position: center top; background-color: #030712; }
-      .slide-bonus { background-image: url('hero-topup-bonus-mobile.png'); background-position: center top; }
-      .is-live .slide-golf { background-image: url('/freeplay/hero-golf-r-mobile.png'); }
-      .is-live .slide-prizes { background-image: url('/freeplay/hero-multi-prize-mobile.png'); }
-      .is-live .slide-bonus { background-image: url('/freeplay/hero-topup-bonus-mobile.png'); }
-      .hero-slide::before,
-      .slide-prizes::before { background: linear-gradient(180deg, rgba(3,7,18,0) 0%, rgba(3,7,18,0) 43%, rgba(3,7,18,.24) 57%, #030712 78%, #030712 100%); }
+      .slide-golf { background-image: url('bonus/hero-bmw-m3-mobile.png'); background-position: center top; }
+      .slide-prizes { background-image: url('bonus/hero-multi-prize-ice-blue-mobile.png'); background-position: center top; background-color: #030712; }
+      .slide-bonus { background-image: url('bonus/hero-topup-bonus-bmw-mobile.png'); background-position: center top; }
+      .is-live .slide-golf { background-image: url('bonus/hero-bmw-m3-mobile.png'); }
+      .is-live .slide-prizes { background-image: url('bonus/hero-multi-prize-ice-blue-mobile.png'); }
+      .is-live .slide-bonus { background-image: url('bonus/hero-topup-bonus-bmw-mobile.png'); }
+      .hero-slide::before { content: none; }
       .hero-inner { align-items: flex-end; justify-content: center; min-height: 640px; padding: 300px 20px 56px; }
       .hero-copy { width: 100%; max-width: 460px; text-align: center; margin: 0 auto; transform: translateY(-82px); }
       .hero-title { color: #fff; font-size: 40px; text-shadow: 0 6px 20px rgba(0,0,0,.3); }
@@ -1675,20 +1675,19 @@
       .header-cta { padding: 9px 12px; font-size: 10px; }
       .hero-slider, .hero-slide, .hero-inner { min-height: 455px; }
       .hero-slide { background-size: 100% auto; background-position: center top; background-repeat: no-repeat; }
-      .slide-golf { background-image: url('hero-golf-r-mobile.png'); background-position: center top; }
-      .slide-prizes { background-image: url('hero-multi-prize-mobile.png'); background-position: center top; }
-      .slide-bonus { background-image: url('hero-topup-bonus-mobile.png'); background-position: center top; }
-      .is-live .slide-golf { background-image: url('/freeplay/hero-golf-r-mobile.png'); }
-      .is-live .slide-prizes { background-image: url('/freeplay/hero-multi-prize-mobile.png'); }
-      .is-live .slide-bonus { background-image: url('/freeplay/hero-topup-bonus-mobile.png'); }
-      .hero-slide::before,
-      .slide-prizes::before { background: linear-gradient(180deg, rgba(3,7,18,0) 0%, rgba(3,7,18,0) 40%, rgba(3,7,18,.18) 54%, #030712 76%, #030712 100%); }
+      .slide-golf { background-image: url('bonus/hero-bmw-m3-mobile.png'); background-position: center top; }
+      .slide-prizes { background-image: url('bonus/hero-multi-prize-ice-blue-mobile.png'); background-position: center top; }
+      .slide-bonus { background-image: url('bonus/hero-topup-bonus-bmw-mobile.png'); background-position: center top; }
+      .is-live .slide-golf { background-image: url('bonus/hero-bmw-m3-mobile.png'); }
+      .is-live .slide-prizes { background-image: url('bonus/hero-multi-prize-ice-blue-mobile.png'); }
+      .is-live .slide-bonus { background-image: url('bonus/hero-topup-bonus-bmw-mobile.png'); }
+      .hero-slide::before { content: none; }
       .hero-inner { padding: 230px 16px 16px; align-items: flex-end; }
       .hero-copy { width: 100%; max-width: 340px; text-align: center; transform: translateY(-18px); }
       .prize-pill { margin-bottom: 12px; padding: 6px 12px; font-size: 10px; background: rgba(255,255,255,.96); color: #111827; border: 1px solid rgba(255,216,77,.55); box-shadow: 0 10px 24px rgba(255,216,77,.18), 0 4px 14px rgba(0,0,0,.26); }
       .prize-pill svg { color: #ffcf24; }
       .hero-title { min-height: 60px; font-size: 30px; line-height: 1; margin-bottom: 10px; display: flex; flex-direction: column; justify-content: center; }
-      .hero-title-golf { font-size: 26px; }
+      .hero-title-bmw { font-size: 26px; }
       .hero-subtitle { min-height: 16px; font-size: 11px; line-height: 1.25; margin-bottom: 14px; max-width: none; white-space: nowrap; }
       .primary-btn { width: 100%; }
       .hero-actions { margin-bottom: 18px; }
@@ -1748,14 +1747,15 @@
       .winner-prize { font-size: 13px; }
       .prizes-section .section-inner { padding-left: 14px; padding-right: 14px; }
       .prize-tabs { margin-bottom: 18px; min-height: 66px; }
-      .prize-feature { display: block; background-image: url('feature-prize-bg-mobile.png'); background-position: center top; }
+      .prize-feature { display: block; background-image: url('bonus/feature-prize-bg-mobile.png'); background-position: center top; }
       .is-live .prize-feature { background-image: url('/freeplay/feature-prize-bg-mobile.png'); }
       .prize-feature::before { background: linear-gradient(180deg, rgba(3,7,18,0) 0%, rgba(3,7,18,.06) 28%, rgba(3,7,18,.42) 50%, rgba(3,7,18,.88) 68%, #030712 100%); }
       .prize-feature-copy { position: absolute; z-index: 5; left: 0; right: 0; bottom: 20px; width: 100%; padding: 0 22px 12px; justify-content: flex-end; }
       .prize-feature-media { position: relative; z-index: 3; display: flex; min-height: 190px; justify-content: center; padding: 18px 22px 0; }
       .prize-feature-media::before { display: none; }
       .prize-feature-media img { width: min(72%, 330px); transform: translate(46px, -11px); }
-      .prize-feature-title { font-size: 33px; margin: 16px 0 10px; }
+      .prize-feature-mobile-series { display: inline; }
+      .prize-feature-title { font-size: clamp(24px, 7vw, 33px); margin: 16px 0 10px; }
       .prize-desc { font-size: 15px; }
       .prize-feature-meta { gap: 12px; margin-bottom: 12px; }
       .prize-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
@@ -1828,7 +1828,7 @@
 
     <header class="site-header">
       <div class="header-inner">
-        <a href="../" class="logo" aria-label="PrizeRunners"><img src="../Logo/PR_Logo_Pink.png" alt="PrizeRunners" /></a>
+        <a href="./" class="logo" aria-label="PrizeRunners"><img src="Logo/PR_Logo_Pink.png" alt="PrizeRunners" /></a>
         <nav class="nav" aria-label="Primary navigation">
           <a href="#how-it-works">How It Works</a>
           <a href="#prizes">Prizes</a>
@@ -1844,7 +1844,7 @@
         <article class="hero-slide slide-golf">
           <div class="hero-inner"><div class="hero-copy">
             <div class="prize-pill"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 20h14v-2H5v2Zm1.2-4h11.6l1.6-9.6-4.2 2.8L12 4 8.8 9.2 4.6 6.4 6.2 16Z"/></svg> Top Prize</div>
-            <h1 class="hero-title hero-title-golf"><span class="title-line">Win This</span><span class="title-line accent-line">Volkswagen Golf R</span></h1>
+            <h1 class="hero-title hero-title-bmw"><span class="title-line">Win This</span><span class="title-line accent-line">BMW M3</span></h1>
             <p class="hero-subtitle">Play Find the Impact and win instantly.</p>
             <div class="hero-actions"><a href="https://prizerunners.com/web/register" class="primary-btn">Start Playing Free <span aria-hidden="true">&gt;</span></a></div>
             <div class="hero-trust">
@@ -1881,7 +1881,6 @@
           </div></div>
         </article>
       </div>
-
       <button class="slider-arrow prev" type="button" aria-label="Previous slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
       <button class="slider-arrow next" type="button" aria-label="Next slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
       <div class="slider-dots" aria-label="Hero slider navigation">
@@ -1939,7 +1938,7 @@
           <div class="winner-track" data-winner-track>
             <article class="winner-card">
               <span class="winner-badge">Revealed today</span>
-              <img class="winner-prize-img" src="../Winners/Alfie Cash Prize.png" alt="Alfie cash prize winner" />
+              <img class="winner-prize-img" src="Winners/Alfie Cash Prize.png" alt="Alfie cash prize winner" />
               <div>
                 <h3 class="winner-name">Alfie</h3>
                 <p class="winner-prize">&pound;1,000 Cash</p>
@@ -1948,7 +1947,7 @@
             </article>
             <article class="winner-card">
               <span class="winner-badge">Revealed today</span>
-              <img class="winner-prize-img" src="../Winners/Charlotte iPhone 17 Pro Max.png" alt="Charlotte iPhone winner" />
+              <img class="winner-prize-img" src="Winners/Charlotte iPhone 17 Pro Max.png" alt="Charlotte iPhone winner" />
               <div>
                 <h3 class="winner-name">Charlotte</h3>
                 <p class="winner-prize">iPhone 17 Pro Max</p>
@@ -1957,7 +1956,7 @@
             </article>
             <article class="winner-card">
               <span class="winner-badge">Revealed yesterday</span>
-              <img class="winner-prize-img" src="../Winners/Jamie Rolex.png" alt="Jamie Rolex winner" />
+              <img class="winner-prize-img" src="Winners/Jamie Rolex.png" alt="Jamie Rolex winner" />
               <div>
                 <h3 class="winner-name">Jamie</h3>
                 <p class="winner-prize">Rolex Submariner</p>
@@ -1966,7 +1965,7 @@
             </article>
             <article class="winner-card">
               <span class="winner-badge">Revealed yesterday</span>
-              <img class="winner-prize-img" src="../Winners/Joe Cash Prize.png" alt="Joe cash prize winner" />
+              <img class="winner-prize-img" src="Winners/Joe Cash Prize.png" alt="Joe cash prize winner" />
               <div>
                 <h3 class="winner-name">Joe</h3>
                 <p class="winner-prize">&pound;2,000 Cash</p>
@@ -1975,7 +1974,7 @@
             </article>
             <article class="winner-card">
               <span class="winner-badge">Recent win</span>
-              <img class="winner-prize-img" src="../Winners/Dan iPhone 17 Pro Max.png" alt="Dan iPhone winner" />
+              <img class="winner-prize-img" src="Winners/Dan iPhone 17 Pro Max.png" alt="Dan iPhone winner" />
               <div>
                 <h3 class="winner-name">Dan</h3>
                 <p class="winner-prize">iPhone 17 Pro Max</p>
@@ -1984,7 +1983,7 @@
             </article>
             <article class="winner-card">
               <span class="winner-badge">Recent win</span>
-              <img class="winner-prize-img" src="../Winners/Michael Cash Prize.png" alt="Michael cash prize winner" />
+              <img class="winner-prize-img" src="Winners/Michael Cash Prize.png" alt="Michael cash prize winner" />
               <div>
                 <h3 class="winner-name">Michael</h3>
                 <p class="winner-prize">&pound;840 Cash</p>
@@ -1993,7 +1992,7 @@
             </article>
             <article class="winner-card">
               <span class="winner-badge">Recent win</span>
-              <img class="winner-prize-img" src="../Winners/Rob Cash Prize.png" alt="Rob cash prize winner" />
+              <img class="winner-prize-img" src="Winners/Rob Cash Prize.png" alt="Rob cash prize winner" />
               <div>
                 <h3 class="winner-name">Rob</h3>
                 <p class="winner-prize">&pound;5,000 Cash</p>
@@ -2002,7 +2001,7 @@
             </article>
             <article class="winner-card">
               <span class="winner-badge">Recent win</span>
-              <img class="winner-prize-img" src="../Winners/Jonathan iPhone 17 Pro Max.png" alt="Jonathan iPhone winner" />
+              <img class="winner-prize-img" src="Winners/Jonathan iPhone 17 Pro Max.png" alt="Jonathan iPhone winner" />
               <div>
                 <h3 class="winner-name">Jonathan</h3>
                 <p class="winner-prize">iPhone 17 Pro Max</p>
@@ -2049,9 +2048,9 @@
           <article class="prize-feature">
             <div class="prize-feature-copy">
               <span class="prize-badge">Top Prize</span>
-              <h3 class="prize-feature-title">Volkswagen <span>Golf R</span></h3>
+              <h3 class="prize-feature-title">BMW<small class="prize-feature-mobile-series"> 3-Series</small> <span>M3</span></h3>
               <div class="prize-feature-meta">
-                <div class="prize-stat"><strong>&pound;42,000</strong><span>Prize Value</span></div>
+                <div class="prize-stat"><strong>&pound;91,485</strong><span>Prize Value</span></div>
                 <div class="prize-stat"><strong>Instant</strong><span>Result</span></div>
                 <div class="prize-stat"><strong>Skill</strong><span>No Draw</span></div>
               </div>
@@ -2059,7 +2058,7 @@
             </div>
             <div class="prize-feature-media">
               <div class="prize-entry-tag" role="note"><span class="lbl">Just</span><span class="val">50p</span><span class="per">Per Play</span></div>
-              <img src="../Hero/Volkswagen Gold GTi 681x369.png" alt="Volkswagen Golf R prize" />
+              <img src="bonus/bmw-m3-cutout-right-preview.png" alt="BMW M3 prize" />
             </div>
           </article>
 
@@ -2067,7 +2066,7 @@
             <article class="prize-card">
               <span class="prize-hot-tag hot">🔥 Hot</span>
               <div class="prize-entry-tag" role="note"><span class="lbl">Just</span><span class="val">50p</span><span class="per">Per Play</span></div>
-              <div class="prize-card-media"><img src="../Prizes/Rolex Submariner Bluesy.png" alt="Rolex Submariner Bluesy prize" /></div>
+              <div class="prize-card-media"><img src="Prizes/Rolex Submariner Bluesy.png" alt="Rolex Submariner Bluesy prize" /></div>
               <div class="prize-card-body">
                 <h3>Rolex Submariner Bluesy</h3>
                 <div class="card-stats">
@@ -2101,9 +2100,9 @@
             <article class="prize-card">
               <span class="prize-hot-tag popular">⭐ Popular</span>
               <div class="prize-entry-tag" role="note"><span class="lbl">Just</span><span class="val">50p</span><span class="per">Per Play</span></div>
-              <div class="prize-card-media"><img src="../Prizes/iPhone 17 Pro Max.png" alt="iPhone 17 Pro Max prize" /></div>
+              <div class="prize-card-media"><img src="bonus/iphone-18-pro-max.png" alt="iPhone 18 Pro Max prize" /></div>
               <div class="prize-card-body">
-                <h3>iPhone 17 Pro Max</h3>
+                <h3>iPhone 18 Pro Max</h3>
                 <div class="card-stats">
                   <div class="card-stat"><strong>&pound;1.2k</strong><span>Value</span></div>
                   <div class="card-stat"><strong>Instant</strong><span>Result</span></div>
@@ -2114,15 +2113,15 @@
                     <span class="won">
                       <svg viewBox="0 0 76 76" aria-hidden="true">
                         <circle class="ring-bg" cx="38" cy="38" r="33" />
-                        <circle class="ring-fill" cx="38" cy="38" r="33" stroke-dasharray="207.3" stroke-dashoffset="62.19" />
+                        <circle class="ring-fill" cx="38" cy="38" r="33" stroke-dasharray="207.3" stroke-dashoffset="207.3" />
                       </svg>
-                      <span class="won-label">5<br>Won</span>
+                      <span class="won-label">0<br>Won</span>
                     </span>
-                    <span class="left">7 Left</span>
+                    <span class="left">11 Left</span>
                   </div>
                   <div class="prize-progress-bar"><span class="prize-progress-fill"></span></div>
                 </div>
-                <div class="prize-card-row"><a class="play-now-btn" href="https://prizerunners.com/web/register" aria-label="Play now for iPhone 17 Pro Max">Play Now</a></div>
+                <div class="prize-card-row"><a class="play-now-btn" href="https://prizerunners.com/web/register" aria-label="Play now for iPhone 18 Pro Max">Play Now</a></div>
               </div>
             </article>
           </div>
@@ -2191,7 +2190,7 @@
                 <span class="sos">Claimed</span>
               </div>
               <div class="prize-entry-tag" style="z-index:2" role="note"><span class="lbl">Just</span><span class="val">50p</span><span class="per">Per Play</span></div>
-              <div class="prize-card-media"><img src="../Prizes/Mercedes AMG A45S.png" alt="Mercedes AMG A45S prize" /></div>
+              <div class="prize-card-media"><img src="Prizes/Mercedes AMG A45S.png" alt="Mercedes AMG A45S prize" /></div>
               <div class="prize-card-body">
                 <h3>Mercedes AMG A45S</h3>
                 <div class="card-stats">
@@ -2222,7 +2221,7 @@
                 <span class="sos">Claimed</span>
               </div>
               <div class="prize-entry-tag" style="z-index:2" role="note"><span class="lbl">Just</span><span class="val">50p</span><span class="per">Per Play</span></div>
-              <div class="prize-card-media"><img src="../Prizes/Rolex Daytona.png" alt="Rolex Daytona prize" /></div>
+              <div class="prize-card-media"><img src="Prizes/Rolex Daytona.png" alt="Rolex Daytona prize" /></div>
               <div class="prize-card-body">
                 <h3>Rolex Daytona</h3>
                 <div class="card-stats">
@@ -2253,7 +2252,7 @@
                 <span class="sos">Claimed</span>
               </div>
               <div class="prize-entry-tag" style="z-index:2" role="note"><span class="lbl">Just</span><span class="val">50p</span><span class="per">Per Play</span></div>
-              <div class="prize-card-media"><img src="../Prizes/Apple iMac M4.png" alt="Apple iMac M4 prize" /></div>
+              <div class="prize-card-media"><img src="Prizes/Apple iMac M4.png" alt="Apple iMac M4 prize" /></div>
               <div class="prize-card-body">
                 <h3>Apple iMac M4</h3>
                 <div class="card-stats">
@@ -2284,7 +2283,7 @@
                 <span class="sos">Claimed</span>
               </div>
               <div class="prize-entry-tag" style="z-index:2" role="note"><span class="lbl">Just</span><span class="val">50p</span><span class="per">Per Play</span></div>
-              <div class="prize-card-media"><img src="../Prizes/Nintendo Switch 2.png" alt="Nintendo Switch 2 prize" /></div>
+              <div class="prize-card-media"><img src="Prizes/Nintendo Switch 2.png" alt="Nintendo Switch 2 prize" /></div>
               <div class="prize-card-body">
                 <h3>Nintendo Switch 2</h3>
                 <div class="card-stats">
@@ -2662,7 +2661,7 @@
                 .is-animating .fp-radar-ring { animation: pingRadar 7s linear infinite; }
                 .is-animating .fp-dot-0 { animation: pingDot_0 7s both infinite; transform-origin: 0 0; }
                 .is-animating .fp-p-prize-0 { animation: popPrize_0 7s both infinite; transform-origin: 0 0; }
-                
+
                 .is-animating .d-1.fp-p-dot { animation: pingDot_1 7s both infinite; transform-origin: 0 0; }
                 .is-animating .d-1.fp-p-line { animation: drawLine_1 7s both infinite; stroke-dasharray: 150; stroke-dashoffset: 150; fill: none; }
                 .is-animating .d-1.fp-p-prize { animation: popPrize_1 7s both infinite; transform-origin: 0 0; }
@@ -2713,23 +2712,23 @@
               <circle cx="0" cy="0" r="80" fill="#ff1f8f" opacity="0.1" />
               <!-- Pink radius (top prize limit) -->
               <circle cx="0" cy="0" r="80" fill="none" stroke="#ff1f8f" stroke-width="2" stroke-dasharray="4 4" opacity=".5" />
-              
+
               <!-- Purple radius (big prizes) -->
               <circle cx="0" cy="0" r="130" fill="none" stroke="#ff7ac4" stroke-width="2" stroke-dasharray="6 6" opacity=".6" />
-              
+
               <!-- Yellow radius (cash prizes) -->
               <circle cx="0" cy="0" r="190" fill="none" stroke="#ffd24a" stroke-width="2" stroke-dasharray="8 8" opacity=".5" />
-              
+
               <!-- Expanding Radar Pulse -->
               <circle cx="0" cy="0" r="240" fill="none" stroke="#10ff9f" class="fp-radar-ring" vector-effect="non-scaling-stroke" />
 
               <!-- Bullseye (Top Prize) -->
               <g class="v-pulse">
-                
-                <!-- Volkswagen Golf R Car and Badge -->
+
+                <!-- BMW M3 Car and Badge -->
                 <g class="fp-p-prize-0">
-                  <image href="../Hero/Volkswagen Gold GTi 681x369.png" x="-70" y="-38" width="140" height="76" style="filter: drop-shadow(0 15px 30px rgba(0,0,0,0.8));" />
-                  
+                  <image href="bonus/bmw-m3-cutout-right-preview.png" x="-70" y="-38" width="140" height="76" style="filter: drop-shadow(0 15px 30px rgba(0,0,0,0.8));" />
+
                   <!-- Badge -->
                   <g transform="translate(0, 50)" font-family="Archivo Black,sans-serif" font-weight="700">
                     <rect x="-40" y="-12" width="80" height="24" rx="12" fill="#ff1f8f" stroke="#fff" stroke-width="2" style="filter: drop-shadow(0 4px 10px rgba(255,31,143,0.5));" />
@@ -2749,7 +2748,7 @@
 
               <!-- Radius Prizes -->
               <g font-family="Archivo Black,sans-serif" font-weight="700">
-                
+
                 <!-- iPhone (1st to appear) -->
                 <g transform="translate(-75, -58)">
                   <g class="fp-p-dot d-1">
@@ -2762,7 +2761,7 @@
                       <g class="v-coin-2">
                         <circle cx="0" cy="0" r="60" fill="url(#fpZone)" />
                         <g transform="rotate(-15)">
-                          <image href="../Hero/iPhone 17 Pro Max.png" x="-32" y="-47" width="64" height="94" style="filter: drop-shadow(0 6px 12px rgba(0,0,0,0.6));" />
+                          <image href="bonus/iphone-18-pro-max.png" x="-32" y="-47" width="64" height="94" style="filter: drop-shadow(0 6px 12px rgba(0,0,0,0.6));" />
                         </g>
                         <g transform="translate(0, 48)">
                           <rect x="-42" y="-12" width="84" height="24" rx="12" fill="#150824" stroke="#ff4dc4" stroke-width="1.5" />
@@ -2785,7 +2784,7 @@
                       <g class="v-coin-3">
                         <circle cx="0" cy="0" r="65" fill="url(#fpZone)" />
                         <g transform="rotate(15)">
-                          <image href="../Hero/Rolex Submariner Bluesy Hero.png" x="-40" y="-56" width="80" height="112" style="filter: drop-shadow(0 6px 12px rgba(0,0,0,0.6));" />
+                          <image href="Hero/Rolex Submariner Bluesy Hero.png" x="-40" y="-56" width="80" height="112" style="filter: drop-shadow(0 6px 12px rgba(0,0,0,0.6));" />
                         </g>
                         <g transform="translate(0, 52)">
                           <rect x="-42" y="-12" width="84" height="24" rx="12" fill="#150824" stroke="#ff4dc4" stroke-width="1.5" />
@@ -2851,7 +2850,7 @@
                         <g class="v-coin-2">
                           <circle cx="0" cy="0" r="60" fill="url(#fpZone)" />
                           <g transform="rotate(-15)">
-                            <image href="../Hero/iPhone 17 Pro Max.png" x="-32" y="-47" width="64" height="94" style="filter: drop-shadow(0 6px 12px rgba(0,0,0,0.6));" />
+                            <image href="bonus/iphone-18-pro-max.png" x="-32" y="-47" width="64" height="94" style="filter: drop-shadow(0 6px 12px rgba(0,0,0,0.6));" />
                           </g>
                           <g transform="translate(0, 48)">
                             <rect x="-42" y="-12" width="84" height="24" rx="12" fill="#150824" stroke="#ff4dc4" stroke-width="1.5" />
@@ -2938,7 +2937,7 @@
         </div>
           <div class="multi-prize-copy">
             <h3>Multiple Ways To Win In Every Game</h3>
-            
+
             <div class="compare-cards">
               <div class="compare-card compare-old">
                 <div class="compare-icon">
@@ -2963,7 +2962,7 @@
             </div>
 
             <p class="pitch-desc">Exact impact point wins top prize. Other prizes are awarded to the closest players.</p>
-            
+
             <div class="pitch-tags">
               <div class="ptag">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
@@ -2991,7 +2990,7 @@
         <div class="winners-group">
           <article class="wcard">
             <div class="wcard-glow"></div>
-            <img class="wavatar" src="../Winners/Alfie Cash Prize.png" alt="Alfie" />
+            <img class="wavatar" src="Winners/Alfie Cash Prize.png" alt="Alfie" />
             <div class="wcard-body">
               <div class="wcard-head">
                 <h4>Alfie</h4>
@@ -3003,7 +3002,7 @@
           </article>
           <article class="wcard">
             <div class="wcard-glow"></div>
-            <img class="wavatar" src="../Winners/Charlotte iPhone 17 Pro Max.png" alt="Charlotte" />
+            <img class="wavatar" src="Winners/Charlotte iPhone 17 Pro Max.png" alt="Charlotte" />
             <div class="wcard-body">
               <div class="wcard-head">
                 <h4>Charlotte</h4>
@@ -3015,7 +3014,7 @@
           </article>
           <article class="wcard">
             <div class="wcard-glow"></div>
-            <img class="wavatar" src="../Winners/Dan iPhone 17 Pro Max.png" alt="Dan" />
+            <img class="wavatar" src="Winners/Dan iPhone 17 Pro Max.png" alt="Dan" />
             <div class="wcard-body">
               <div class="wcard-head">
                 <h4>Dan</h4>
@@ -3027,7 +3026,7 @@
           </article>
           <article class="wcard">
             <div class="wcard-glow"></div>
-            <img class="wavatar" src="../Winners/Jack iPhone 17 Pro Max.png" alt="Jack" />
+            <img class="wavatar" src="Winners/Jack iPhone 17 Pro Max.png" alt="Jack" />
             <div class="wcard-body">
               <div class="wcard-head">
                 <h4>Jack</h4>
@@ -3039,7 +3038,7 @@
           </article>
           <article class="wcard">
             <div class="wcard-glow"></div>
-            <img class="wavatar" src="../Winners/Jamie Rolex.png" alt="Jamie" />
+            <img class="wavatar" src="Winners/Jamie Rolex.png" alt="Jamie" />
             <div class="wcard-body">
               <div class="wcard-head">
                 <h4>Jamie</h4>
@@ -3051,7 +3050,7 @@
           </article>
           <article class="wcard">
             <div class="wcard-glow"></div>
-            <img class="wavatar" src="../Winners/Joe Cash Prize.png" alt="Joe" />
+            <img class="wavatar" src="Winners/Joe Cash Prize.png" alt="Joe" />
             <div class="wcard-body">
               <div class="wcard-head">
                 <h4>Joe</h4>
@@ -3063,7 +3062,7 @@
           </article>
           <article class="wcard">
             <div class="wcard-glow"></div>
-            <img class="wavatar" src="../Winners/Jonathan iPhone 17 Pro Max.png" alt="Jonathan" />
+            <img class="wavatar" src="Winners/Jonathan iPhone 17 Pro Max.png" alt="Jonathan" />
             <div class="wcard-body">
               <div class="wcard-head">
                 <h4>Jonathan</h4>
@@ -3075,7 +3074,7 @@
           </article>
           <article class="wcard">
             <div class="wcard-glow"></div>
-            <img class="wavatar" src="../Winners/Michael Cash Prize.png" alt="Michael" />
+            <img class="wavatar" src="Winners/Michael Cash Prize.png" alt="Michael" />
             <div class="wcard-body">
               <div class="wcard-head">
                 <h4>Michael</h4>
@@ -3087,7 +3086,7 @@
           </article>
           <article class="wcard">
             <div class="wcard-glow"></div>
-            <img class="wavatar" src="../Winners/Rob Cash Prize.png" alt="Rob" />
+            <img class="wavatar" src="Winners/Rob Cash Prize.png" alt="Rob" />
             <div class="wcard-body">
               <div class="wcard-head">
                 <h4>Rob</h4>
@@ -3103,7 +3102,7 @@
         <div class="winners-group" aria-hidden="true">
           <article class="wcard">
             <div class="wcard-glow"></div>
-            <img class="wavatar" src="../Winners/Alfie Cash Prize.png" alt="Alfie" />
+            <img class="wavatar" src="Winners/Alfie Cash Prize.png" alt="Alfie" />
             <div class="wcard-body">
               <div class="wcard-head">
                 <h4>Alfie</h4>
@@ -3115,7 +3114,7 @@
           </article>
           <article class="wcard">
             <div class="wcard-glow"></div>
-            <img class="wavatar" src="../Winners/Charlotte iPhone 17 Pro Max.png" alt="Charlotte" />
+            <img class="wavatar" src="Winners/Charlotte iPhone 17 Pro Max.png" alt="Charlotte" />
             <div class="wcard-body">
               <div class="wcard-head">
                 <h4>Charlotte</h4>
@@ -3127,7 +3126,7 @@
           </article>
           <article class="wcard">
             <div class="wcard-glow"></div>
-            <img class="wavatar" src="../Winners/Dan iPhone 17 Pro Max.png" alt="Dan" />
+            <img class="wavatar" src="Winners/Dan iPhone 17 Pro Max.png" alt="Dan" />
             <div class="wcard-body">
               <div class="wcard-head">
                 <h4>Dan</h4>
@@ -3139,7 +3138,7 @@
           </article>
           <article class="wcard">
             <div class="wcard-glow"></div>
-            <img class="wavatar" src="../Winners/Jack iPhone 17 Pro Max.png" alt="Jack" />
+            <img class="wavatar" src="Winners/Jack iPhone 17 Pro Max.png" alt="Jack" />
             <div class="wcard-body">
               <div class="wcard-head">
                 <h4>Jack</h4>
@@ -3151,7 +3150,7 @@
           </article>
           <article class="wcard">
             <div class="wcard-glow"></div>
-            <img class="wavatar" src="../Winners/Jamie Rolex.png" alt="Jamie" />
+            <img class="wavatar" src="Winners/Jamie Rolex.png" alt="Jamie" />
             <div class="wcard-body">
               <div class="wcard-head">
                 <h4>Jamie</h4>
@@ -3163,7 +3162,7 @@
           </article>
           <article class="wcard">
             <div class="wcard-glow"></div>
-            <img class="wavatar" src="../Winners/Joe Cash Prize.png" alt="Joe" />
+            <img class="wavatar" src="Winners/Joe Cash Prize.png" alt="Joe" />
             <div class="wcard-body">
               <div class="wcard-head">
                 <h4>Joe</h4>
@@ -3175,7 +3174,7 @@
           </article>
           <article class="wcard">
             <div class="wcard-glow"></div>
-            <img class="wavatar" src="../Winners/Jonathan iPhone 17 Pro Max.png" alt="Jonathan" />
+            <img class="wavatar" src="Winners/Jonathan iPhone 17 Pro Max.png" alt="Jonathan" />
             <div class="wcard-body">
               <div class="wcard-head">
                 <h4>Jonathan</h4>
@@ -3187,7 +3186,7 @@
           </article>
           <article class="wcard">
             <div class="wcard-glow"></div>
-            <img class="wavatar" src="../Winners/Michael Cash Prize.png" alt="Michael" />
+            <img class="wavatar" src="Winners/Michael Cash Prize.png" alt="Michael" />
             <div class="wcard-body">
               <div class="wcard-head">
                 <h4>Michael</h4>
@@ -3199,7 +3198,7 @@
           </article>
           <article class="wcard">
             <div class="wcard-glow"></div>
-            <img class="wavatar" src="../Winners/Rob Cash Prize.png" alt="Rob" />
+            <img class="wavatar" src="Winners/Rob Cash Prize.png" alt="Rob" />
             <div class="wcard-body">
               <div class="wcard-head">
                 <h4>Rob</h4>
@@ -3286,7 +3285,7 @@
     <footer class="site-footer" aria-label="PrizeRunners legal footer">
       <div class="site-footer-inner">
         <div class="footer-brand">
-          <img class="footer-logo" src="../Logo/PR_Logo_White.png" alt="PrizeRunners logo" />
+          <img class="footer-logo" src="Logo/PR_Logo_White.png" alt="PrizeRunners logo" />
           <div>
             <div class="footer-copy">
               <span>Prize Runners - All Rights Reserved 2026.</span>
