@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Split Test Stats | PrizeRunners</title>
+  <link rel="icon" type="image/png" href="/Logo/PR_Logo_Pink.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f6f4f7; --card: #ffffff; --ink: #17121d; --mute: #6b6475; --line: #e7e2ea;
+      --pink: #ec2f91; --pink-soft: #fde7f2; --grey-soft: #eeecf1;
+      --good: #138a4b; --good-soft: #e4f5ec; --warn: #a15c00; --warn-soft: #fff3df;
+      color-scheme: light;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #121016; --card: #1c1922; --ink: #f4f1f7; --mute: #a59fb0; --line: #2e2a36;
+        --pink: #ff5fb4; --pink-soft: #3a1830; --grey-soft: #29252f;
+        --good: #4fd18b; --good-soft: #15301f; --warn: #ffb547; --warn-soft: #33270f;
+        color-scheme: dark;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "Figtree", Arial, sans-serif; background: var(--bg); color: var(--ink); -webkit-font-smoothing: antialiased; }
+    .wrap { max-width: 880px; margin: 0 auto; padding-block: 24px 48px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; gap: 16px; }
+    header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .eyebrow { font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--pink); }
+    h1 { font-size: 24px; font-weight: 900; line-height: 1.15; text-wrap: balance; margin-top: 4px; }
+    .meta { color: var(--mute); font-size: 13px; font-weight: 600; margin-top: 6px; line-height: 1.5; }
+    .tools { display: flex; gap: 8px; align-items: center; }
+    button, .btn { font: inherit; font-weight: 800; font-size: 13px; border: 1px solid var(--line); background: var(--card); color: var(--ink); border-radius: 999px; padding: 8px 14px; cursor: pointer; }
+    button:focus-visible, input:focus-visible { outline: 3px solid var(--pink); outline-offset: 2px; }
+    .chips { display: flex; gap: 8px; flex-wrap: wrap; }
+    .chips button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+    .verdict { border-radius: 16px; padding: 14px 16px; font-weight: 700; font-size: 15px; line-height: 1.45; background: var(--grey-soft); }
+    .verdict b { font-weight: 900; }
+    .verdict.good { background: var(--good-soft); }
+    .verdict.warn { background: var(--warn-soft); }
+    .verdict small { display: block; font-weight: 600; color: var(--mute); font-size: 13px; margin-top: 4px; }
+    .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 560px) { .cards { grid-template-columns: 1fr; } }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 18px; display: grid; gap: 14px; min-width: 0; }
+    .card.g { border-color: var(--pink); box-shadow: 0 0 0 1px var(--pink) inset; }
+    .ch { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .tag { font-size: 11px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; padding: 4px 9px; border-radius: 999px; background: var(--grey-soft); color: var(--mute); }
+    .g .tag { background: var(--pink-soft); color: var(--pink); }
+    .lead { font-size: 11px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; color: var(--good); }
+    .name { font-size: 17px; font-weight: 900; }
+    .big { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+    .big strong { font-size: 44px; font-weight: 900; line-height: 1; font-variant-numeric: tabular-nums; }
+    .big span { color: var(--mute); font-weight: 700; font-size: 13px; }
+    .lift { font-weight: 900; font-size: 13px; padding: 3px 8px; border-radius: 999px; }
+    .lift.up { color: var(--good); background: var(--good-soft); }
+    .lift.down { color: #c0392b; background: #fdecea; }
+    @media (prefers-color-scheme: dark) { .lift.down { color: #ff8a7a; background: #3a1d1a; } }
+    dl { display: grid; grid-template-columns: 1fr auto; gap: 8px 12px; font-size: 14px; border-top: 1px solid var(--line); padding-top: 12px; }
+    dt { color: var(--mute); font-weight: 700; }
+    dd { font-weight: 800; text-align: right; font-variant-numeric: tabular-nums; }
+    dd small { color: var(--mute); font-weight: 700; margin-left: 4px; }
+    details { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 14px 16px; }
+    summary { font-weight: 800; cursor: pointer; }
+    .tablewrap { overflow-x: auto; margin-top: 12px; }
+    table { border-collapse: collapse; width: 100%; font-size: 13px; font-variant-numeric: tabular-nums; }
+    th, td { padding: 7px 8px; text-align: right; border-bottom: 1px solid var(--line); white-space: nowrap; }
+    th:first-child, td:first-child { text-align: left; }
+    th { color: var(--mute); font-weight: 800; font-size: 11px; letter-spacing: .04em; text-transform: uppercase; }
+    .notes { color: var(--mute); font-size: 12.5px; line-height: 1.6; font-weight: 600; }
+    .notes li { margin-left: 18px; }
+    .err { background: var(--warn-soft); color: var(--warn); border-radius: 12px; padding: 10px 14px; font-weight: 700; font-size: 13px; }
+    .login { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 22px; display: grid; gap: 12px; max-width: 420px; }
+    .login input { font: inherit; font-size: 16px; padding: 11px 14px; border-radius: 12px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); width: 100%; }
+    .login button { background: var(--pink); color: #fff; border-color: var(--pink); padding: 11px; }
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <div>
+        <div class="eyebrow">Landing page split test</div>
+        <h1>Current page vs BMW page</h1>
+        <p class="meta" id="meta">Loading…</p>
+      </div>
+      <div class="tools" id="tools" hidden>
+        <button type="button" id="refresh">Refresh</button>
+        <button type="button" id="logout">Lock</button>
+      </div>
+    </header>
+
+    <form class="login" id="login" hidden>
+      <b>Enter the stats password</b>
+      <input id="pw" type="password" autocomplete="current-password" placeholder="Password" required />
+      <button type="submit">Show stats</button>
+      <p class="err" id="loginErr" hidden></p>
+    </form>
+
+    <section id="dash" hidden>
+      <div style="display:grid;gap:16px">
+        <div class="chips" role="group" aria-label="Date range">
+          <button type="button" data-r="all" aria-pressed="true">Since start</button>
+          <button type="button" data-r="7" aria-pressed="false">Last 7 days</button>
+          <button type="button" data-r="yesterday" aria-pressed="false">Yesterday</button>
+          <button type="button" data-r="today" aria-pressed="false">Today</button>
+        </div>
+        <div id="errors"></div>
+        <div class="verdict" id="verdict"></div>
+        <div class="cards" id="cards"></div>
+        <details>
+          <summary>Day by day</summary>
+          <div class="tablewrap"><table id="daily"></table></div>
+        </details>
+        <ul class="notes">
+          <li><b>Visits</b>: one per browser per page, counted live. Test visits with ?lp= in the link are left out.</li>
+          <li><b>Clicks</b>: visitors who tapped a sign-up button.</li>
+          <li><b>Regs and FTDs</b>: real registrations from the registrations sheet, matched by the page label (lp_a / lp_g). They update when the sheet updates, so the latest day fills in later.</li>
+          <li><b>Reg rate</b> = regs ÷ visits. <b>FTD rate</b> = FTDs ÷ regs.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      var $ = function (id) { return document.getElementById(id); };
+      var KEY = 'pr_stats_key';
+      var data = null, range = 'all';
+      var store = {
+        get: function () { try { return localStorage.getItem(KEY) || ''; } catch (e) { return ''; } },
+        set: function (v) { try { v ? localStorage.setItem(KEY, v) : localStorage.removeItem(KEY); } catch (e) {} }
+      };
+      var key = new URLSearchParams(location.search).get('key') || store.get();
+
+      var nf = new Intl.NumberFormat('en-GB');
+      var money = new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP', maximumFractionDigits: 0 });
+      var pct = function (x) { return isFinite(x) ? (x * 100).toFixed(1) + '%' : '–'; };
+      var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+      var fmtDay = function (d) { return new Date(d + 'T12:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'short' }); };
+
+      function showLogin(msg) {
+        $('login').hidden = false; $('dash').hidden = true; $('tools').hidden = true;
+        $('meta').textContent = 'Private page.';
+        $('loginErr').hidden = !msg; $('loginErr').textContent = msg || '';
+      }
+
+      function load() {
+        if (!key) return showLogin();
+        $('meta').textContent = 'Loading…';
+        fetch('/api/stats?key=' + encodeURIComponent(key), { cache: 'no-store' })
+          .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, status: r.status, j: j }; }); })
+          .then(function (res) {
+            if (res.status === 401) { store.set(''); key = ''; return showLogin('Wrong password.'); }
+            if (!res.ok) { return showLogin(res.j.error || 'Something went wrong.'); }
+            store.set(key);
+            data = res.j;
+            $('login').hidden = true; $('dash').hidden = false; $('tools').hidden = false;
+            render();
+          })
+          .catch(function () { $('meta').textContent = 'Could not load the stats. Check your connection and press Refresh.'; });
+      }
+
+      function pick() {
+        var days = data.days, n = days.length;
+        if (range === 'today') return days.slice(n - 1);
+        if (range === 'yesterday') return days.slice(Math.max(0, n - 2), n - 1);
+        if (range === '7') return days.slice(Math.max(0, n - 7));
+        return days;
+      }
+
+      function sum(days) {
+        var t = {};
+        days.forEach(function (d) { Object.keys(d).forEach(function (k) { if (k !== 'day') t[k] = (t[k] || 0) + d[k]; }); });
+        ['visit', 'click', 'reg', 'ftd', 'dep'].forEach(function (f) { ['a', 'g'].forEach(function (v) { t[f + '_' + v] = t[f + '_' + v] || 0; }); });
+        return t;
+      }
+
+      // Normal CDF, for how sure we are that the leader's reg rate is really higher.
+      function phi(z) {
+        var t = 1 / (1 + 0.2316419 * Math.abs(z));
+        var d = 0.3989423 * Math.exp(-z * z / 2);
+        var p = d * t * (0.3193815 + t * (-0.3565638 + t * (1.781478 + t * (-1.821256 + t * 1.330274))));
+        return z > 0 ? 1 - p : p;
+      }
+
+      function render() {
+        var dayCount = data.days.length;
+        var sheet = data.sheetLatest ? new Date(data.sheetLatest.replace(' ', 'T')).toLocaleString('en-GB', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) : 'not available';
+        $('meta').textContent = 'Running since ' + fmtDay(data.start) + ' (day ' + dayCount + '). Regs and FTDs up to ' + sheet + '.';
+
+        var errs = [];
+        if (data.errors && data.errors.counter) errs.push('Visits and clicks: ' + data.errors.counter);
+        if (data.errors && data.errors.sheet) errs.push('Regs and FTDs: ' + data.errors.sheet);
+        $('errors').innerHTML = errs.map(function (e) { return '<p class="err">' + esc(e) + '</p>'; }).join('');
+
+        var t = sum(pick());
+        var s = {
+          a: { visit: t.visit_a, click: t.click_a, reg: t.reg_a, ftd: t.ftd_a, dep: t.dep_a },
+          g: { visit: t.visit_g, click: t.click_g, reg: t.reg_g, ftd: t.ftd_g, dep: t.dep_g }
+        };
+        ['a', 'g'].forEach(function (v) { var x = s[v]; x.rate = x.visit ? x.reg / x.visit : NaN; x.ctr = x.visit ? x.click / x.visit : NaN; x.ftdRate = x.reg ? x.ftd / x.reg : NaN; });
+        var lift = s.a.rate > 0 ? s.g.rate / s.a.rate - 1 : NaN;
+
+        // Verdict.
+        var v = $('verdict'), minVisits = Math.min(s.a.visit, s.g.visit), need = 1200;
+        v.className = 'verdict';
+        if (!s.a.visit && !s.g.visit) {
+          v.innerHTML = '<b>No visits counted yet.</b><small>Numbers appear as soon as people land on offers.prizerunners.com.</small>';
+        } else {
+          var p = (s.a.reg + s.g.reg) / (s.a.visit + s.g.visit);
+          var se = Math.sqrt(p * (1 - p) * (1 / s.a.visit + 1 / s.g.visit));
+          var z = se > 0 ? (s.g.rate - s.a.rate) / se : 0;
+          var conf = phi(Math.abs(z));
+          var leader = s.g.rate >= s.a.rate ? 'The BMW page' : 'The current page';
+          var liftTxt = isFinite(lift) ? (lift >= 0 ? '+' : '') + Math.round(lift * 100) + '%' : '';
+          var minRegs = Math.min(s.a.reg, s.g.reg);
+          if (minVisits < 300 || minRegs < 20) {
+            v.className = 'verdict warn';
+            v.innerHTML = '<b>Too early to call.</b> ' + (liftTxt ? leader + ' is ahead on reg rate (' + liftTxt + '), but numbers this small swing a lot.' : '') +
+              '<small>So far ' + nf.format(minVisits) + ' visits and ' + nf.format(minRegs) + ' regs on the smaller side. Wait for about ' + nf.format(need) + ' visits and 20+ regs per page.</small>';
+          } else if (conf >= 0.95) {
+            v.className = 'verdict good';
+            v.innerHTML = '<b>' + leader + ' is winning on reg rate (' + liftTxt + ').</b> ' + Math.round(conf * 100) + '% confidence it is really better.' +
+              '<small>' + (minVisits < need ? 'Let it reach about ' + nf.format(need) + ' visits per page to be safe, then decide.' : 'Enough data to decide.') + ' Check the FTD rate is not worse before switching.</small>';
+          } else {
+            v.innerHTML = '<b>' + leader + ' is ahead (' + liftTxt + '), not proven yet.</b> ' + Math.round(conf * 100) + '% confidence. We want 95%.' +
+              '<small>Keep running. ' + nf.format(minVisits) + ' visits per page so far.</small>';
+          }
+        }
+
+        var leadV = isFinite(lift) && minVisits > 0 ? (s.g.rate > s.a.rate ? 'g' : s.a.rate > s.g.rate ? 'a' : '') : '';
+        function card(vk, tag, name) {
+          var x = s[vk];
+          var liftHtml = vk === 'g' && isFinite(lift) ? '<span class="lift ' + (lift >= 0 ? 'up' : 'down') + '">' + (lift >= 0 ? '+' : '') + Math.round(lift * 100) + '% vs control</span>' : '';
+          return '<article class="card ' + vk + '">' +
+            '<div class="ch"><span class="tag">' + tag + '</span>' + (leadV === vk ? '<span class="lead">Leading</span>' : '') + '</div>' +
+            '<div class="name">' + name + '</div>' +
+            '<div><div class="big"><strong>' + pct(x.rate) + '</strong><span>reg rate</span>' + liftHtml + '</div></div>' +
+            '<dl>' +
+            '<dt>Visits</dt><dd>' + nf.format(x.visit) + '</dd>' +
+            '<dt>Clicked sign-up</dt><dd>' + nf.format(x.click) + '<small>' + pct(x.ctr) + '</small></dd>' +
+            '<dt>Regs</dt><dd>' + nf.format(x.reg) + '</dd>' +
+            '<dt>FTDs</dt><dd>' + nf.format(x.ftd) + '<small>' + pct(x.ftdRate) + '</small></dd>' +
+            '<dt>Deposits</dt><dd>' + money.format(x.dep) + '</dd>' +
+            '</dl></article>';
+        }
+        $('cards').innerHTML = card('a', 'Control · lp_a', 'Current page') + card('g', 'Variation · lp_g', 'BMW page');
+
+        var rows = data.days.slice().reverse().map(function (d) {
+          return '<tr><td>' + fmtDay(d.day) + '</td><td>' + d.visit_a + '</td><td>' + d.visit_g + '</td><td>' + d.reg_a + '</td><td>' + d.reg_g +
+            '</td><td>' + pct(d.visit_a ? d.reg_a / d.visit_a : NaN) + '</td><td>' + pct(d.visit_g ? d.reg_g / d.visit_g : NaN) + '</td><td>' + d.ftd_a + '</td><td>' + d.ftd_g + '</td></tr>';
+        }).join('');
+        $('daily').innerHTML = '<thead><tr><th>Day</th><th>Visits A</th><th>Visits G</th><th>Regs A</th><th>Regs G</th><th>Rate A</th><th>Rate G</th><th>FTD A</th><th>FTD G</th></tr></thead><tbody>' + rows + '</tbody>';
+      }
+
+      document.querySelectorAll('.chips button').forEach(function (b) {
+        b.addEventListener('click', function () {
+          range = b.getAttribute('data-r');
+          document.querySelectorAll('.chips button').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+          if (data) render();
+        });
+      });
+      $('login').addEventListener('submit', function (e) { e.preventDefault(); key = $('pw').value.trim(); load(); });
+      $('refresh').addEventListener('click', load);
+      $('logout').addEventListener('click', function () { store.set(''); key = ''; data = null; showLogin(); });
+      if (new URLSearchParams(location.search).has('key')) history.replaceState(null, '', location.pathname);
+      setInterval(function () { if (data && !document.hidden) load(); }, 5 * 60 * 1000);
+      load();
+    })();
+  </script>
+</body>
+</html>
