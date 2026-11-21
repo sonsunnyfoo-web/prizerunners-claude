@@ -219,7 +219,7 @@
           if (minVisits < 300 || minRegs < 20) {
             v.className = 'verdict warn';
             v.innerHTML = '<b>Too early to call.</b> ' + (liftTxt ? leader + ' is ahead on reg rate (' + liftTxt + '), but numbers this small swing a lot.' : '') +
-              '<small>So far ' + nf.format(minVisits) + ' visits and ' + nf.format(minRegs) + ' regs on the smaller side. Wait for about ' + nf.format(need) + ' visits and 20+ regs per page.</small>';
+              '<small>So far ' + nf.format(minVisits) + (minVisits === 1 ? ' visit' : ' visits') + ' and ' + nf.format(minRegs) + (minRegs === 1 ? ' reg' : ' regs') + ' on the smaller side. Wait for about ' + nf.format(need) + ' visits and 20+ regs per page.</small>';
           } else if (conf >= 0.95) {
             v.className = 'verdict good';
             v.innerHTML = '<b>' + leader + ' is winning on reg rate (' + liftTxt + ').</b> ' + Math.round(conf * 100) + '% confidence it is really better.' +

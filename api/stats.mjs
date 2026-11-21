@@ -2,7 +2,7 @@
 // registrations, FTDs and deposits from the registrations sheet (pr_db2), per page version per day.
 // Needs STATS_KEY (the stats page password) and SHEET_CSV_URL (CSV export link of pr_db2).
 // Optional: TEST_START (YYYY-MM-DD, first day of the test).
-import { redis, ukDay, dayKey, json, TEST, VARIANTS } from './_lib.mjs';
+import { redis, ukDay, dayKey, startKey, json, TEST, VARIANTS } from './_lib.mjs';
 
 const FIELDS = ['visit', 'click', 'reg', 'ftd', 'dep'];
 
@@ -55,7 +55,12 @@ export async function GET(request) {
 
   // Work out the day range.
   let start = /^\d{4}-\d{2}-\d{2}$/.test(process.env.TEST_START || '') ? process.env.TEST_START : null;
-  if (!start) start = [...byDay.keys()].sort()[0] || today;
+  if (!start) {
+    let counted = null;
+    try { [counted] = await redis([['GET', startKey()]]); } catch { /* reported below */ }
+    const firstReg = [...byDay.keys()].sort()[0];
+    start = [counted, firstReg].filter(Boolean).sort()[0] || today;
+  }
   const days = [];
   for (let d = new Date(start + 'T12:00:00Z'); days.length < 400; d.setUTCDate(d.getUTCDate() + 1)) {
     const day = d.toISOString().slice(0, 10);

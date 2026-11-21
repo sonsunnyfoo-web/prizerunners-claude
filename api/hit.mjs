@@ -1,5 +1,5 @@
 // Counts a visit or a sign-up click for one page version. Called by /ab/track.js.
-import { redis, ukDay, dayKey, VARIANTS } from './_lib.mjs';
+import { redis, ukDay, dayKey, startKey, VARIANTS } from './_lib.mjs';
 
 const TYPES = ['visit', 'click'];
 
@@ -14,9 +14,11 @@ export async function POST(request) {
   const t = data && data.t;
   if (!v || !TYPES.includes(t)) return new Response('Bad request', { status: 400 });
 
-  const key = dayKey(ukDay());
+  const day = ukDay();
+  const key = dayKey(day);
   try {
     await redis([
+      ['SET', startKey(), day, 'NX'],
       ['HINCRBY', key, `${t}_${v}`, 1],
       ['EXPIRE', key, 60 * 60 * 24 * 400],
     ]);

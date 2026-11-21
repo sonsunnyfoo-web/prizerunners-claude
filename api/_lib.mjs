@@ -33,6 +33,11 @@ export function dayKey(day) {
   return `ab:${TEST}:${day}`;
 }
 
+// First day anything was counted; the stats start from here unless TEST_START is set.
+export function startKey() {
+  return `ab:${TEST}:start`;
+}
+
 export function json(data, status = 200) {
   return new Response(JSON.stringify(data), {
     status,
