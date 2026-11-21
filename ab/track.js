@@ -2,8 +2,9 @@
  * PrizeRunners landing page split test.
  * Loaded by every page in the test. The page says which version it is with
  * <html data-lp-variant="lp_a"> (control) or "lp_g" (BMW variation). This script:
- *   1. puts the version in utm_term on every sign-up link, so each registration in
- *      pr_db2 shows which page it came from (the ad set ID is still in adset_id);
+ *   1. copies the ad's tags onto every link to prizerunners.com and puts the version in
+ *      utm_term, so each registration in pr_db2 shows which page it came from (the ad set
+ *      ID is still in adset_id);
  *   2. counts one visit per browser and one sign-up click per browser, per version.
  * Visits with ?lp=a or ?lp=g in the URL are QA checks and are not counted.
  */
@@ -13,6 +14,9 @@
 
   var REG = 'https://prizerunners.com/web/register';
   var SEL = 'a[href^="' + REG + '"]';
+  // Every link to the main site (winners, T&Cs, privacy...) carries the ad tags too: the main
+  // site saves them on any page for 3 days, so a visitor who goes winners -> sign-up keeps them.
+  var SITE = 'a[href^="https://prizerunners.com/"], a[href^="https://www.prizerunners.com/"]';
   var params = new URLSearchParams(location.search);
   var qa = params.has('lp');
   var DAY = 60 * 60 * 24;
@@ -42,7 +46,7 @@
       a.href = url.toString();
     } catch (e) { /* leave the link as it is */ }
   }
-  function tagAll() { document.querySelectorAll(SEL).forEach(tagLink); }
+  function tagAll() { document.querySelectorAll(SITE).forEach(tagLink); }
 
   // Tag after the page's own scripts have run, and again at click time to be safe.
   if (document.readyState === 'complete') tagAll();
@@ -50,9 +54,10 @@
   window.addEventListener('load', tagAll);
 
   document.addEventListener('click', function (e) {
-    var a = e.target && e.target.closest ? e.target.closest(SEL) : null;
+    var a = e.target && e.target.closest ? e.target.closest(SITE) : null;
     if (!a) return;
     tagLink(a);
+    if (!a.matches(SEL)) return; // only sign-up clicks are counted
     if (getCookie('pr_ab_clk') !== v) { if (!qa) setCookie('pr_ab_clk', v); count('click'); }
   }, true);
 
