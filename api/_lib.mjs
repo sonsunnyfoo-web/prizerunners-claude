@@ -1,6 +1,7 @@
 // Shared helpers for the split-test functions. Files starting with "_" are not deployed as endpoints.
 
-export const TEST = process.env.TEST_NAME || 'bmw1';
+// Preview deployments count into their own bucket so test visits never mix with live numbers.
+export const TEST = (process.env.TEST_NAME || 'bmw1') + (process.env.VERCEL_ENV && process.env.VERCEL_ENV !== 'production' ? '-preview' : '');
 export const VARIANTS = { lp_a: 'a', lp_g: 'g' };
 
 // Upstash Redis over its REST API, so no packages are needed.
