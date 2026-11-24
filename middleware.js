@@ -10,7 +10,7 @@
 
 export const config = { matcher: ['/', '/index.html'] };
 
-const SPLIT_G = 0.5;
+const SPLIT_G = 0.2; // share of new visitors sent to the variation (80/20 since 24 Nov 2026, 50/50 before)
 const COOKIE = 'pr_lp';
 const VARIATION_PATH = '/index-bmw.html';
 const MAX_AGE = 60 * 60 * 24 * 30;
